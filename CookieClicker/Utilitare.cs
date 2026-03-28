@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CookieClicker
+{
+    public static class Utilitare
+    {
+        public class TextPlutitor
+        {
+            public float X;
+            public float Y;
+            public string Text;
+            public int Alpha = 255;
+        }
+        public static string FormateazaNumar(double numar)
+        {
+            if (numar >= 1e33) return (numar / 1e33).ToString("0.##") + " Dc";
+            if (numar >= 1e30) return (numar / 1e30).ToString("0.##") + " No";
+            if (numar >= 1e27) return (numar / 1e27).ToString("0.##") + " Oc";
+            if (numar >= 1e24) return (numar / 1e24).ToString("0.##") + " Sp";
+            if (numar >= 1e21) return (numar / 1e21).ToString("0.##") + " Sx";
+            if (numar >= 1e18) return (numar / 1e18).ToString("0.##") + " Qi";
+            if (numar >= 1e15) return (numar / 1e15).ToString("0.##") + " Qa";
+            if (numar >= 1e12) return (numar / 1e12).ToString("0.##") + " T";
+            if (numar >= 1e9) return (numar / 1e9).ToString("0.##") + " B";
+            if (numar >= 1e6) return (numar / 1e6).ToString("0.##") + " M";
+            if (numar >= 1e3) return (numar / 1e3).ToString("0.##") + " K";
+            return Math.Floor(numar).ToString();
+        }
+        public static void Save(Form1 joc)
+        {
+            Properties.Settings.Default.SavedClicks = joc.totalClicks;
+            Properties.Settings.Default.SavedMulti = joc.Multi;
+            Properties.Settings.Default.SavedClickPower = joc.click;
+            Properties.Settings.Default.SavedAutoCookies = joc.autoCookies;
+
+            Properties.Settings.Default.SavedRebirths = joc.rebirths;
+            Properties.Settings.Default.SavedRebirthPoints = joc.rebirthpoints;
+            Properties.Settings.Default.SavedPretRebirth = joc.pretrebirth;
+
+            // SALVAREA LISTELOR DE PRETURI (Folosim 'joc.lista...' pentru ca le luam din Form1)
+            Properties.Settings.Default.SalvarePreturiClick = string.Join(";", CatalogUpgradeuri.listaClick.Select(u => u.PretCurent));
+            Properties.Settings.Default.SalvarePreturiMulti = string.Join(";", CatalogUpgradeuri.listaMulti.Select(u => u.PretCurent));
+            Properties.Settings.Default.SalvarePreturiAuto = string.Join(";", CatalogUpgradeuri.listaAuto.Select(u => u.PretCurent));
+
+            Properties.Settings.Default.Save();
+        }
+        // Functia principala de incarcare
+        public static void Load(Form1 joc)
+        {
+            joc.totalClicks = Properties.Settings.Default.SavedClicks;
+            joc.Multi = Properties.Settings.Default.SavedMulti;
+            joc.click = Properties.Settings.Default.SavedClickPower;
+            joc.autoCookies = Properties.Settings.Default.SavedAutoCookies;
+
+            joc.rebirths = (int)Properties.Settings.Default.SavedRebirths;
+            joc.rebirthpoints = (int)Properties.Settings.Default.SavedRebirthPoints;
+            joc.pretrebirth = Properties.Settings.Default.SavedPretRebirth;
+
+            // anti-bug: daca cumva salvarea e corupta sau e prima data cand joaca
+            if (joc.pretrebirth < 100) joc.pretrebirth = 100;
+
+            // INCARCAM LISTELE DE PRETURI
+            IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaClick, Properties.Settings.Default.SalvarePreturiClick);
+            IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaMulti, Properties.Settings.Default.SalvarePreturiMulti);
+            IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaAuto, Properties.Settings.Default.SalvarePreturiAuto);
+        }
+
+        // Am mutat si functia asta aici ca sa nu mai ocupe loc in Form1
+        public static void IncarcaPreturiDinSalvare(List<Upgrade> lista, string salvare)
+        {
+            if (!string.IsNullOrEmpty(salvare))
+            {
+                string[] preturi = salvare.Split(';');
+                for (int i = 0; i < preturi.Length && i < lista.Count; i++)
+                {
+                    lista[i].PretCurent = double.Parse(preturi[i]);
+                }
+            }
+        }
+    }
+}
