@@ -79,6 +79,7 @@
             multi5x.TabIndex = 3;
             multi5x.Text = "5x multilpayer";
             multi5x.UseVisualStyleBackColor = true;
+            multi5x.Click += multi5x_Click_1;
             // 
             // multi10x
             // 
@@ -89,6 +90,7 @@
             multi10x.TabIndex = 4;
             multi10x.Text = "10x multiplayer";
             multi10x.UseVisualStyleBackColor = true;
+            multi10x.Click += multi10x_Click_1;
             // 
             // multi25x
             // 
@@ -99,6 +101,7 @@
             multi25x.TabIndex = 5;
             multi25x.Text = "25x multiplayer";
             multi25x.UseVisualStyleBackColor = true;
+            multi25x.Click += multi25x_Click_1;
             // 
             // label2
             // 

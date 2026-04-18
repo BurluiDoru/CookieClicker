@@ -25,21 +25,21 @@ namespace CookieClicker
         // 3. BUTOANELE DE CUMPARARE
         private void button1_Click_1(object sender, EventArgs e)
         {
-            bool succes = Form1.Instanta.CumparaUpgradeInteligent(CatalogUpgradeuri.listaClick[0]);
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaClick[0]);
             if (succes) ActualizeazaPreturi();
         }
 
         // Butonul 2: +5 Cookies
         private void button2_Click_1(object sender, EventArgs e)
         {
-            bool succes = Form1.Instanta.CumparaUpgradeInteligent(CatalogUpgradeuri.listaClick[1]);
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaClick[1]);
             if (succes) ActualizeazaPreturi();
         }
 
         // Butonul 3: +10 Cookies
         private void button3_Click_1(object sender, EventArgs e)
         {
-            bool succes = Form1.Instanta.CumparaUpgradeInteligent(CatalogUpgradeuri.listaClick[2]);
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaClick[2]);
             if (succes) ActualizeazaPreturi();
         }
     }

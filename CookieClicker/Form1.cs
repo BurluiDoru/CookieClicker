@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq; // esential pentru noul sistem de salvare
+using System.Linq; 
 using System.Windows.Forms;
 
 namespace CookieClicker
@@ -18,10 +18,9 @@ namespace CookieClicker
 
         public int rebirths = 0;
         public int rebirthpoints = 0;
-        public double pretrebirth = 1e2;
+        public double pretrebirth = 1e3;
 
         List<Utilitare.TextPlutitor> textePlutitoare = new List<Utilitare.TextPlutitor>();
-        public bool testareHitbox = false;
 
         ClickShop fereastraClickShop = null;
         MultiShop fereastraMultiShop = null;
@@ -30,6 +29,8 @@ namespace CookieClicker
 
         DateTime ultimuclick = DateTime.MinValue;
         int cooldownclickms = 50;
+        // Memorie pentru a tine poza in siguranta cand tragem de ecran
+        private Image memorieFundal;
 
         public static Form1 Instanta;
 
@@ -37,6 +38,16 @@ namespace CookieClicker
         {
             InitializeComponent();
             Instanta = this;
+            this.DoubleBuffered = true;
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Activam WS_EX_COMPOSITED
+                return cp;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,7 +71,7 @@ namespace CookieClicker
         }
 
         // --- FUNCTIA UNIVERSALA DE CUMPARARE ---
-        public bool CumparaUpgradeInteligent(Upgrade upg)
+        public bool CumparaUpgrade(Upgrade upg)
         {
             if (totalClicks >= upg.PretCurent)
             {
@@ -115,7 +126,7 @@ namespace CookieClicker
             if (raspuns == DialogResult.Yes)
             {
                 totalClicks = 0; Multi = 1; click = 1; autoCookies = 0;
-                rebirths = 0; rebirthpoints = 0; pretrebirth = 100;
+                rebirths = 0; rebirthpoints = 0; pretrebirth = 1e3;
 
                 CurataListaPreturi();
                 fereastraClickShop = null;
@@ -129,7 +140,6 @@ namespace CookieClicker
             }
         }
 
-        // --- FUNCTII DE CURATARE ---
         private void CurataListaPreturi()
         {
             // O singura functie care reseteaza toate preturile din toate magazinele
@@ -161,7 +171,7 @@ namespace CookieClicker
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            if ((DateTime.Now - ultimuclick).TotalMilliseconds < cooldownclickms || BackgroundImage == null) return;
+            if ((DateTime.Now - ultimuclick).TotalMilliseconds < cooldownclickms || BackgroundImage == null) return ;
 
             float scala = Math.Min((float)ClientSize.Width / BackgroundImage.Width, (float)ClientSize.Height / BackgroundImage.Height);
             float razaCookie = (BackgroundImage.Width * scala * 0.23f) / 2f;

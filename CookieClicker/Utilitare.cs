@@ -33,7 +33,7 @@ namespace CookieClicker
         public static void Save(Form1 joc)
         {
             Properties.Settings.Default.SavedClicks = joc.totalClicks;
-            Properties.Settings.Default.SavedMulti = joc.Multi;
+            Properties.Settings.Default.SavedMulti = joc.Multi; 
             Properties.Settings.Default.SavedClickPower = joc.click;
             Properties.Settings.Default.SavedAutoCookies = joc.autoCookies;
 
@@ -61,7 +61,7 @@ namespace CookieClicker
             joc.pretrebirth = Properties.Settings.Default.SavedPretRebirth;
 
             // anti-bug: daca cumva salvarea e corupta sau e prima data cand joaca
-            if (joc.pretrebirth < 100) joc.pretrebirth = 100;
+            if (joc.pretrebirth < 1000) joc.pretrebirth = 1000;
 
             // INCARCAM LISTELE DE PRETURI
             IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaClick, Properties.Settings.Default.SalvarePreturiClick);

@@ -45,15 +45,16 @@ namespace CookieClicker
             listaClick.Add(new Upgrade("Click +5", 100, 5, TipUpgrade.Click));
             listaClick.Add(new Upgrade("Click +10", 1000, 10, TipUpgrade.Click));
             // Upgrade-uri pentru Multi
-            listaMulti.Add(new Upgrade("Multi 2x", 50, 2, TipUpgrade.Multi));
-            listaMulti.Add(new Upgrade("Multi 5x", 500, 5, TipUpgrade.Multi));
-            listaMulti.Add(new Upgrade("Multi 10x", 5000, 10, TipUpgrade.Multi));
-            listaMulti.Add(new Upgrade("Multi 25x", 25000, 25, TipUpgrade.Multi));
+            listaMulti.Add(new Upgrade("Multi 2x", 50, 1, TipUpgrade.Multi));
+            listaMulti.Add(new Upgrade("Multi 5x", 500, 4, TipUpgrade.Multi));
+            listaMulti.Add(new Upgrade("Multi 10x", 5000, 9, TipUpgrade.Multi));
+            listaMulti.Add(new Upgrade("Multi 25x", 25000, 24, TipUpgrade.Multi));
             // Upgrade-uri pentru Auto
             listaAuto.Add(new Upgrade("Auto +1 CPS", 200, 1, TipUpgrade.Auto));
             listaAuto.Add(new Upgrade("Auto +5 CPS", 2000, 5, TipUpgrade.Auto));
             listaAuto.Add(new Upgrade("Auto +10 CPS", 20000, 10, TipUpgrade.Auto));
         
         }
+
     }
 }

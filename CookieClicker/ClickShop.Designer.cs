@@ -41,7 +41,7 @@
             // 
             button3.Anchor = AnchorStyles.Bottom;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(498, 372);
+            button3.Location = new Point(530, 326);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
             button3.Size = new Size(164, 40);
@@ -54,7 +54,7 @@
             // 
             button2.Anchor = AnchorStyles.Bottom;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(290, 372);
+            button2.Location = new Point(271, 326);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
             button2.Size = new Size(150, 40);
@@ -69,7 +69,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(86, 414);
+            label1.Location = new Point(31, 368);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 3;
@@ -81,7 +81,7 @@
             button1.BackColor = Color.Transparent;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(86, 372);
+            button1.Location = new Point(31, 326);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(127, 40);
@@ -95,7 +95,7 @@
             // 
             label2.Anchor = AnchorStyles.Bottom;
             label2.AutoSize = true;
-            label2.Location = new Point(290, 414);
+            label2.Location = new Point(271, 368);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
             label2.TabIndex = 4;
@@ -105,7 +105,7 @@
             // 
             label3.Anchor = AnchorStyles.Bottom;
             label3.AutoSize = true;
-            label3.Location = new Point(498, 414);
+            label3.Location = new Point(530, 368);
             label3.Name = "label3";
             label3.Size = new Size(38, 15);
             label3.TabIndex = 5;
