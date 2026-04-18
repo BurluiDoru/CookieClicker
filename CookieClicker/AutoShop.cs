@@ -17,26 +17,106 @@ namespace CookieClicker
             // ATENTIE: Inlocuieste "labelPret2x" cu numele real al textului/butonului tau din Design!
             // Extragem pretul direct din lista inteligenta a Form1 si il formatam frumos:
 
-            label1.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[0].PretCurent);
-            label2.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[1].PretCurent);
-            label3.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[2].PretCurent);
+            PretAutoUpgrade1.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[0].PretCurent);
+            PretAutoUpgrade2.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[1].PretCurent);
+            PretAutoUpgrade3.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[2].PretCurent);
+            PretAutoUpgrade4.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[3].PretCurent);
         }
 
         // 3. BUTOANELE DE CUMPARARE
-        private void cps1_Click(object sender, EventArgs e)
+
+        private void AutoUpgrade1_Click(object sender, EventArgs e)
         {
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[0]);
             if (succes) ActualizeazaPreturi();
         }
-        private void cps2_Click_1(object sender, EventArgs e)
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[0]);
+            if (succes) ActualizeazaPreturi();
+        }
+
+        private void PretAutoUpgrade1_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[0]);
+            if (succes) ActualizeazaPreturi();
+        }
+
+        private void AutoUpgrade1Nr_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[0]);
+            if (succes) ActualizeazaPreturi();
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
         {
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[1]);
             if (succes) ActualizeazaPreturi();
         }
-        private void cps3_Click_1(object sender, EventArgs e)
+
+        private void AutoUpgrade3_Click(object sender, EventArgs e)
         {
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[2]);
             if (succes) ActualizeazaPreturi();
+        }
+        private void PretAutoUpgrade2_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[1]);
+            if (succes) ActualizeazaPreturi();
+        }
+
+        private void AutoUpgrade2Nr_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[1]);
+            if (succes) ActualizeazaPreturi();
+        }
+        private void PretAutoUpgrade3_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[2]);
+            if (succes) ActualizeazaPreturi();
+        }
+
+        private void AutoUpgrade3Nr_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[2]);
+            if (succes) ActualizeazaPreturi();
+        }
+        private void AutoUpgrade4_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[3]);
+            if (succes) ActualizeazaPreturi();
+        }
+
+        private void AutoUpgrade4Nr_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[3]);
+            if (succes) ActualizeazaPreturi();
+        }
+
+        private void PretAutoUpgrade4_Click(object sender, EventArgs e)
+        {
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[3]);
+            if (succes) ActualizeazaPreturi();
+        }
+
+        private void DetailPanel_MouseEnter(object sender, EventArgs e)
+        {
+            // 1. Actualizezi textele din panoul negru
+            label1.Text = "Cursor";
+            label1.Text = "Da click automat o data la 10 secunde.";
+
+            // 2. Faci panoul negru vizibil
+            DetailPanel.Visible = true;
+            // (Opțional) Aici poți muta panoul negru să stea fix lângă mouse
+            // panouDetaliiNegru.Location = new Point(panelCursor.Left - panouDetaliiNegru.Width - 10, panelCursor.Top);
+        }
+
+        private void DetailPanel_MouseLeave(object sender, EventArgs e)
+        {
+
+            // Ascunzi panoul negru înapoi
+            DetailPanel.Visible = false;
         }
     }
 }

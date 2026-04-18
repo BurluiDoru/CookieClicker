@@ -53,7 +53,8 @@ namespace CookieClicker
             listaAuto.Add(new Upgrade("Auto +1 CPS", 200, 1, TipUpgrade.Auto));
             listaAuto.Add(new Upgrade("Auto +5 CPS", 2000, 5, TipUpgrade.Auto));
             listaAuto.Add(new Upgrade("Auto +10 CPS", 20000, 10, TipUpgrade.Auto));
-        
+            listaAuto.Add(new Upgrade("Auto +20 CPS", 40000, 20, TipUpgrade.Auto));
+
         }
 
     }
