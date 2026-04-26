@@ -11,10 +11,8 @@ namespace CookieClicker
             ActualizeazaPreturi();
         }
 
-        // 2. Functia care schimba textele de pe ecran
         public void ActualizeazaPreturi()
         {
-            // ATENTIE: Inlocuieste "labelPret2x" cu numele real al textului/butonului tau din Design!
             // Extragem pretul direct din lista inteligenta a Form1 si il formatam frumos:
 
             PretAutoUpgrade1.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[0].PretCurent);
