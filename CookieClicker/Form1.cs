@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq; 
@@ -28,7 +29,7 @@ namespace CookieClicker
         RebirthShop fereastraRebirth = null;
 
         DateTime ultimuclick = DateTime.MinValue;
-        int cooldownclickms = 50;
+        int cooldownclickms = 100;
         // Memorie pentru a tine poza in siguranta cand tragem de ecran
         private Image memorieFundal;
 
@@ -171,8 +172,8 @@ namespace CookieClicker
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            if ((DateTime.Now - ultimuclick).TotalMilliseconds < cooldownclickms || BackgroundImage == null) return ;
-
+                if ((DateTime.Now - ultimuclick).TotalMilliseconds < cooldownclickms || BackgroundImage == null) return;
+      
             float scala = Math.Min((float)ClientSize.Width / BackgroundImage.Width, (float)ClientSize.Height / BackgroundImage.Height);
             float razaCookie = (BackgroundImage.Width * scala * 0.23f) / 2f;
 
@@ -220,9 +221,18 @@ namespace CookieClicker
             panelshop.Visible = true; buttonCloseShop.Visible = true;
         }
 
-        private void ClickShop_Click(object sender, EventArgs e) { if (fereastraClickShop == null || fereastraClickShop.IsDisposed) fereastraClickShop = new ClickShop(); DeschideInPanel(fereastraClickShop); }
-        private void MultiShop_Click(object sender, EventArgs e) { if (fereastraMultiShop == null || fereastraMultiShop.IsDisposed) fereastraMultiShop = new MultiShop(); DeschideInPanel(fereastraMultiShop); }
-        private void AutoShop_Click_1(object sender, EventArgs e) { if (fereastraAutoShop == null || fereastraAutoShop.IsDisposed) fereastraAutoShop = new AutoShop(); DeschideInPanel(fereastraAutoShop); }
+        private void ClickShop_Click(object sender, EventArgs e) 
+        { if (fereastraClickShop == null || fereastraClickShop.IsDisposed) 
+                fereastraClickShop = new ClickShop(); 
+            DeschideInPanel(fereastraClickShop);}
+        private void MultiShop_Click(object sender, EventArgs e)
+        { if (fereastraMultiShop == null || fereastraMultiShop.IsDisposed)
+                fereastraMultiShop = new MultiShop(); 
+            DeschideInPanel(fereastraMultiShop); }
+        private void AutoShop_Click_1(object sender, EventArgs e) 
+        { if (fereastraAutoShop == null || fereastraAutoShop.IsDisposed) 
+                fereastraAutoShop = new AutoShop();
+            DeschideInPanel(fereastraAutoShop); }
 
         private void butonRebirthShop_Click(object sender, EventArgs e)
         {
@@ -233,8 +243,13 @@ namespace CookieClicker
             panelRebirth.BringToFront(); panelRebirth.Visible = true;
         }
 
-        private void buttonCloseShop_Click_1(object sender, EventArgs e) { panelshop.Controls.Clear(); panelshop.Visible = false; buttonCloseShop.Visible = false; }
-        public void InchideRebirthShop() { panelRebirth.Controls.Clear(); panelRebirth.Visible = false; }
+        private void buttonCloseShop_Click_1(object sender, EventArgs e)
+        { panelshop.Controls.Clear();
+            panelshop.Visible = false; 
+            buttonCloseShop.Visible = false; }
+        public void InchideRebirthShop() 
+        { panelRebirth.Controls.Clear(); 
+            panelRebirth.Visible = false; }
         private void RebirthButton_Click(object sender, EventArgs e) { CumparaRebirth(); }
 
         

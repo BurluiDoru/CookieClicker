@@ -82,41 +82,28 @@ namespace CookieClicker
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[2]);
             if (succes) ActualizeazaPreturi();
         }
-        private void AutoUpgrade4_Click(object sender, EventArgs e)
+        private void AutoUpgrade4_Click_1(object sender, EventArgs e)
         {
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[3]);
             if (succes) ActualizeazaPreturi();
         }
 
-        private void AutoUpgrade4Nr_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[3]);
             if (succes) ActualizeazaPreturi();
         }
 
-        private void PretAutoUpgrade4_Click(object sender, EventArgs e)
+        private void PretAutoUpgrade4_Click_1(object sender, EventArgs e)
         {
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[3]);
             if (succes) ActualizeazaPreturi();
         }
 
-        private void DetailPanel_MouseEnter(object sender, EventArgs e)
+        private void AutoUpgrade4Nr_Click_1(object sender, EventArgs e)
         {
-            // 1. Actualizezi textele din panoul negru
-            label1.Text = "Cursor";
-            label1.Text = "Da click automat o data la 10 secunde.";
-
-            // 2. Faci panoul negru vizibil
-            DetailPanel.Visible = true;
-            // (Opțional) Aici poți muta panoul negru să stea fix lângă mouse
-            // panouDetaliiNegru.Location = new Point(panelCursor.Left - panouDetaliiNegru.Width - 10, panelCursor.Top);
-        }
-
-        private void DetailPanel_MouseLeave(object sender, EventArgs e)
-        {
-
-            // Ascunzi panoul negru înapoi
-            DetailPanel.Visible = false;
+            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[3]);
+            if (succes) ActualizeazaPreturi();
         }
     }
 }

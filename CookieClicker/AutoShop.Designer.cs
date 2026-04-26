@@ -207,6 +207,7 @@
             AutoUpgrade4.Name = "AutoUpgrade4";
             AutoUpgrade4.Size = new Size(245, 63);
             AutoUpgrade4.TabIndex = 10;
+            AutoUpgrade4.Click += AutoUpgrade4_Click_1;
             // 
             // AutoUpgrade4Nr
             // 
@@ -216,6 +217,7 @@
             AutoUpgrade4Nr.Size = new Size(104, 15);
             AutoUpgrade4Nr.TabIndex = 2;
             AutoUpgrade4Nr.Text = "Auto Upgrade 1 nr";
+            AutoUpgrade4Nr.Click += AutoUpgrade4Nr_Click_1;
             // 
             // PretAutoUpgrade4
             // 
@@ -226,6 +228,7 @@
             PretAutoUpgrade4.Size = new Size(38, 21);
             PretAutoUpgrade4.TabIndex = 1;
             PretAutoUpgrade4.Text = "pret";
+            PretAutoUpgrade4.Click += PretAutoUpgrade4_Click_1;
             // 
             // label5
             // 
@@ -236,6 +239,7 @@
             label5.Size = new Size(113, 21);
             label5.TabIndex = 0;
             label5.Text = "Auto CPS +20";
+            label5.Click += label5_Click;
             // 
             // AutoShop
             // 
