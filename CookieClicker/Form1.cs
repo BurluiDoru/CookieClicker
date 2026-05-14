@@ -30,8 +30,6 @@ namespace CookieClicker
 
         DateTime ultimuclick = DateTime.MinValue;
         int cooldownclickms = 100;
-        // Memorie pentru a tine poza in siguranta cand tragem de ecran
-        private Image memorieFundal;
 
         public static Form1 Instanta;
 
@@ -50,7 +48,6 @@ namespace CookieClicker
                 return cp;
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             CatalogUpgradeuri.ConstruiesteCatalogul();
@@ -100,7 +97,7 @@ namespace CookieClicker
             if (totalClicks >= pretrebirth)
             {
                 totalClicks = 0; Multi = 1; click = 1; autoCookies = 0;
-                rebirths++; rebirthpoints += 1;
+                rebirths++; rebirthpoints += 1000;
                 pretrebirth *= 10;
 
                 // Curatam listele la valorile de inceput

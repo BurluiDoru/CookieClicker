@@ -124,6 +124,7 @@
             // 
             // panelshop
             // 
+            panelshop.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panelshop.BackColor = SystemColors.ControlLight;
             panelshop.Location = new Point(12, 560);
             panelshop.Name = "panelshop";
@@ -167,6 +168,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
