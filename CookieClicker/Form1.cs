@@ -136,9 +136,15 @@ namespace CookieClicker
 
         private void CurataListaPreturi()
         {
-            foreach (var upg in CatalogUpgradeuri.listaClick) { upg.PretCurent = upg.PretDeBaza; upg.Nivel = 0; }
-            foreach (var upg in CatalogUpgradeuri.listaMulti) { upg.PretCurent = upg.PretDeBaza; upg.Nivel = 0; }
-            foreach (var upg in CatalogUpgradeuri.listaAuto) { upg.PretCurent = upg.PretDeBaza; upg.Nivel = 0; }
+            foreach (var upg in CatalogUpgradeuri.listaClick) {
+                upg.PretCurent = upg.PretDeBaza; 
+                upg.Nivel = 0; }
+            foreach (var upg in CatalogUpgradeuri.listaMulti) { 
+                upg.PretCurent = upg.PretDeBaza;
+                upg.Nivel = 0; }
+            foreach (var upg in CatalogUpgradeuri.listaAuto) { 
+                upg.PretCurent = upg.PretDeBaza;
+                upg.Nivel = 0; }
         }
 
 

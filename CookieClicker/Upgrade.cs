@@ -21,7 +21,6 @@ namespace CookieClicker
         public int Nivel;
         public TipUpgrade Tip;
 
-        //constructor pentru upgrade-uri
         public Upgrade(string nume ,double pretBaza, double bonus,TipUpgrade tip)
         {
             this.Nume = nume;
