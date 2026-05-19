@@ -13,16 +13,12 @@ namespace CookieClicker
 
         public void ActualizeazaPreturi()
         {
-            // Extragem pretul direct din lista inteligenta a Form1 si il formatam frumos:
 
             PretAutoUpgrade1.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[0].PretCurent);
             PretAutoUpgrade2.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[1].PretCurent);
             PretAutoUpgrade3.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[2].PretCurent);
             PretAutoUpgrade4.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[3].PretCurent);
         }
-
-        // 3. BUTOANELE DE CUMPARARE
-
         private void AutoUpgrade1_Click(object sender, EventArgs e)
         {
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[0]);

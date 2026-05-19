@@ -10,7 +10,6 @@ namespace CookieClicker
     public partial class Form1 : Form
     {
        
-        // Variabilele jocului
         public double totalClicks = 0;
         public double Multi = 1;
         public double click = 1;
@@ -44,7 +43,7 @@ namespace CookieClicker
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  // Activam WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;  
                 return cp;
             }
         }
@@ -68,7 +67,6 @@ namespace CookieClicker
             Utilitare.Save(this);
         }
 
-        // --- FUNCTIA UNIVERSALA DE CUMPARARE ---
         public bool CumparaUpgrade(Upgrade upg)
         {
             if (totalClicks >= upg.PretCurent)
@@ -76,12 +74,11 @@ namespace CookieClicker
                 totalClicks -= upg.PretCurent;
                 upg.Nivel++;
 
-                // Aici verificam eticheta si dam bonusul corect
                 if (upg.Tip == TipUpgrade.Click) click += upg.Bonus;
                 if (upg.Tip == TipUpgrade.Multi) Multi += upg.Bonus;
                 if (upg.Tip == TipUpgrade.Auto) autoCookies += upg.Bonus;
 
-                upg.PretCurent *= 2; // pretul se dubleaza dupa fiecare cumparare
+                upg.PretCurent *= 2; 
 
                 ActualizeazaInterfata();
                 return true;
@@ -91,7 +88,6 @@ namespace CookieClicker
             return false;
         }
 
-        // --- BUTOANE DE RESET SI REBIRTH ---
         public bool CumparaRebirth()
         {
             if (totalClicks >= pretrebirth)
@@ -100,7 +96,7 @@ namespace CookieClicker
                 rebirths++; rebirthpoints += 1000;
                 pretrebirth *= 10;
 
-                // Curatam listele la valorile de inceput
+               
                 CurataListaPreturi();
                 fereastraClickShop = null;
                 fereastraMultiShop = null;
@@ -140,7 +136,6 @@ namespace CookieClicker
 
         private void CurataListaPreturi()
         {
-            // O singura functie care reseteaza toate preturile din toate magazinele
             foreach (var upg in CatalogUpgradeuri.listaClick) { upg.PretCurent = upg.PretDeBaza; upg.Nivel = 0; }
             foreach (var upg in CatalogUpgradeuri.listaMulti) { upg.PretCurent = upg.PretDeBaza; upg.Nivel = 0; }
             foreach (var upg in CatalogUpgradeuri.listaAuto) { upg.PretCurent = upg.PretDeBaza; upg.Nivel = 0; }

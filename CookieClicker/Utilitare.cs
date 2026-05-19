@@ -41,14 +41,12 @@ namespace CookieClicker
             Properties.Settings.Default.SavedRebirthPoints = joc.rebirthpoints;
             Properties.Settings.Default.SavedPretRebirth = joc.pretrebirth;
 
-            // SALVAREA LISTELOR DE PRETURI (Folosim 'joc.lista...' pentru ca le luam din Form1)
             Properties.Settings.Default.SalvarePreturiClick = string.Join(";", CatalogUpgradeuri.listaClick.Select(u => u.PretCurent));
             Properties.Settings.Default.SalvarePreturiMulti = string.Join(";", CatalogUpgradeuri.listaMulti.Select(u => u.PretCurent));
             Properties.Settings.Default.SalvarePreturiAuto = string.Join(";", CatalogUpgradeuri.listaAuto.Select(u => u.PretCurent));
 
             Properties.Settings.Default.Save();
         }
-        // Functia principala de incarcare
         public static void Load(Form1 joc)
         {
             joc.totalClicks = Properties.Settings.Default.SavedClicks;
@@ -60,16 +58,13 @@ namespace CookieClicker
             joc.rebirthpoints = (int)Properties.Settings.Default.SavedRebirthPoints;
             joc.pretrebirth = Properties.Settings.Default.SavedPretRebirth;
 
-            // anti-bug: daca cumva salvarea e corupta sau e prima data cand joaca
             if (joc.pretrebirth < 1000) joc.pretrebirth = 1000;
 
-            // INCARCAM LISTELE DE PRETURI
             IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaClick, Properties.Settings.Default.SalvarePreturiClick);
             IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaMulti, Properties.Settings.Default.SalvarePreturiMulti);
             IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaAuto, Properties.Settings.Default.SalvarePreturiAuto);
         }
 
-        // Am mutat si functia asta aici ca sa nu mai ocupe loc in Form1
         public static void IncarcaPreturiDinSalvare(List<Upgrade> lista, string salvare)
         {
             if (!string.IsNullOrEmpty(salvare))
