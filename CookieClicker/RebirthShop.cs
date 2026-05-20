@@ -38,7 +38,6 @@ namespace CookieClicker
                     webView21.Visible = true;
                     webView21.Dock = DockStyle.Fill;
                     webView21.BringToFront();
-
                     webView21.CoreWebView2.Navigate(caleVideo);
                 }
                 else

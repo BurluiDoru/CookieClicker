@@ -93,7 +93,8 @@ namespace CookieClicker
             if (totalClicks >= pretrebirth)
             {
                 totalClicks = 0; Multi = 1; click = 1; autoCookies = 0;
-                rebirths++; rebirthpoints += 1000;
+                rebirths++; 
+                rebirthpoints += 1;
                 pretrebirth *= 10;
 
                
