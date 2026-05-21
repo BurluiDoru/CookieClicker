@@ -12,6 +12,7 @@ namespace CookieClicker
 {
     public partial class RebirthShop : Form
     {
+        private bool videoInitializat = false;
         public RebirthShop()
         {
             InitializeComponent();
@@ -29,12 +30,26 @@ namespace CookieClicker
             {
                 Form1.Instanta.rebirthpoints -= 1000;
 
-
                 string caleVideo = @"D:\c++\cookieclicker-cica\CookieClicker\CookieClicker\Secret.mp4";
 
                 if (System.IO.File.Exists(caleVideo))
                 {
                     await webView21.EnsureCoreWebView2Async(null);
+
+                    if (!videoInitializat)
+                    {
+                        webView21.CoreWebView2.WebMessageReceived += WebView21_WebMessageReceived;
+
+                        await webView21.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(@"
+                    window.addEventListener('keydown', function(event) {
+                        if (event.key === 'Escape') {
+                            window.chrome.webview.postMessage('INCHIDE_VIDEO');
+                        }
+                    });
+                ");
+
+                        videoInitializat = true;
+                    }
 
                     webView21.Visible = true;
                     webView21.Dock = DockStyle.Fill;
@@ -49,6 +64,16 @@ namespace CookieClicker
             else
             {
                 MessageBox.Show("Nu ai destule Rebirth Points! Ai nevoie de 1000.");
+            }
+        }
+        private void WebView21_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            string mesaj = e.TryGetWebMessageAsString();
+
+            if (mesaj == "INCHIDE_VIDEO")
+            {
+                webView21.CoreWebView2.Navigate("about:blank");
+                webView21.Visible = false;
             }
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

@@ -41,7 +41,7 @@ namespace CookieClicker
             SuspendLayout();
 
             // ── Shop nav buttons ───────────────────────────────────
-            StyleShopButton(ClickShop,        "🛒 Click Shop",   new Point(12, 24));
+            StyleShopButton(ClickShop, "🍪 Click Shop",   new Point(12, 24));
             StyleShopButton(MultiShop,        "✨ Multi Shop",   new Point(12, 78));
             StyleShopButton(AutoShop,         "⚙️ Auto Shop",    new Point(12, 130));
             StyleShopButton(butonRebirthShop, "⭐ Rebirth Shop", new Point(12, 186));

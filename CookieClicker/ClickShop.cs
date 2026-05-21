@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Drawing; // Obligatoriu pentru Color, Point, Size si Font
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CookieClicker
@@ -10,8 +10,6 @@ namespace CookieClicker
         {
             InitializeComponent();
 
-            // Mutam codul de design aici pentru a-l proteja de Visual Studio Designer
-            // Aceste linii vor stiliza butoanele automat cand porneste jocul
             StyleUpgradePanel(panel1, label1Title, "🍪 Click +1", label1, label1Nr, new Point(3, 3), Color.FromArgb(45, 110, 185));
             StyleUpgradePanel(panel2, label2Title, "🍪 Click +5", label2, label2Nr, new Point(254, 3), Color.FromArgb(50, 155, 85));
             StyleUpgradePanel(panel3, label3Title, "🍪 Click +10", label3, label3Nr, new Point(505, 3), Color.FromArgb(185, 110, 25));
@@ -19,7 +17,6 @@ namespace CookieClicker
             ActualizeazaPreturi();
         }
 
-        // Metoda speciala ascunsa de Designer pentru a preveni stergerea interfetei
         private static void StyleUpgradePanel(Panel pnl, Label titleLbl, string title, Label priceLbl, Label countLbl, Point location, Color accent)
         {
             pnl.BackColor = Color.FromArgb(30, 22, 12);

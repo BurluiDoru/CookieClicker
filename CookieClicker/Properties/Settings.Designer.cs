@@ -142,5 +142,41 @@ namespace CookieClicker.Properties {
                 this["SalvarePreturiAuto"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SalvareNiveluriClick {
+            get {
+                return ((string)(this["SalvareNiveluriClick"]));
+            }
+            set {
+                this["SalvareNiveluriClick"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SalvareNiveluriMulti {
+            get {
+                return ((string)(this["SalvareNiveluriMulti"]));
+            }
+            set {
+                this["SalvareNiveluriMulti"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SalvareNiveluriAuto {
+            get {
+                return ((string)(this["SalvareNiveluriAuto"]));
+            }
+            set {
+                this["SalvareNiveluriAuto"] = value;
+            }
+        }
     }
 }

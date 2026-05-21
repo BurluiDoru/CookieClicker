@@ -44,8 +44,29 @@ namespace CookieClicker
             Properties.Settings.Default.SalvarePreturiClick = string.Join(";", CatalogUpgradeuri.listaClick.Select(u => u.PretCurent));
             Properties.Settings.Default.SalvarePreturiMulti = string.Join(";", CatalogUpgradeuri.listaMulti.Select(u => u.PretCurent));
             Properties.Settings.Default.SalvarePreturiAuto = string.Join(";", CatalogUpgradeuri.listaAuto.Select(u => u.PretCurent));
+            Properties.Settings.Default.SalvarePreturiClick = string.Join(";", CatalogUpgradeuri.listaClick.Select(u => u.PretCurent));
+            Properties.Settings.Default.SalvarePreturiMulti = string.Join(";", CatalogUpgradeuri.listaMulti.Select(u => u.PretCurent));
+            Properties.Settings.Default.SalvarePreturiAuto = string.Join(";", CatalogUpgradeuri.listaAuto.Select(u => u.PretCurent));
+
+            Properties.Settings.Default.SalvareNiveluriClick = string.Join(";", CatalogUpgradeuri.listaClick.Select(u => u.Nivel));
+            Properties.Settings.Default.SalvareNiveluriMulti = string.Join(";", CatalogUpgradeuri.listaMulti.Select(u => u.Nivel));
+            Properties.Settings.Default.SalvareNiveluriAuto = string.Join(";", CatalogUpgradeuri.listaAuto.Select(u => u.Nivel));
+
 
             Properties.Settings.Default.Save();
+        }
+        public static void IncarcaNiveluriDinSalvare(System.Collections.Generic.List<Upgrade> lista, string salvare)
+        {
+            if (string.IsNullOrEmpty(salvare)) return;
+
+            string[] parti = salvare.Split(';');
+            for (int i = 0; i < parti.Length && i < lista.Count; i++)
+            {
+                if (int.TryParse(parti[i], out int nivel))
+                {
+                    lista[i].Nivel = nivel;
+                }
+            }
         }
         public static void Load(Form1 joc)
         {
@@ -54,6 +75,9 @@ namespace CookieClicker
             joc.click = Properties.Settings.Default.SavedClickPower;
             joc.autoCookies = Properties.Settings.Default.SavedAutoCookies;
 
+            IncarcaNiveluriDinSalvare(CatalogUpgradeuri.listaClick, Properties.Settings.Default.SalvareNiveluriClick);
+            IncarcaNiveluriDinSalvare(CatalogUpgradeuri.listaMulti, Properties.Settings.Default.SalvareNiveluriMulti);
+            IncarcaNiveluriDinSalvare(CatalogUpgradeuri.listaAuto, Properties.Settings.Default.SalvareNiveluriAuto);
             joc.rebirths = (int)Properties.Settings.Default.SavedRebirths;
             joc.rebirthpoints = (int)Properties.Settings.Default.SavedRebirthPoints;
             joc.pretrebirth = Properties.Settings.Default.SavedPretRebirth;

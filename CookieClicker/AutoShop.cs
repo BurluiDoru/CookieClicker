@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Drawing; // Obligatoriu pentru Color si Point
+using System.Drawing; 
 using System.Windows.Forms;
 
 namespace CookieClicker

@@ -37,6 +37,13 @@ namespace CookieClicker
             InitializeComponent();
             Instanta = this;
             this.DoubleBuffered = true;
+            this.SetStyle(
+        ControlStyles.AllPaintingInWmPaint |
+        ControlStyles.UserPaint |
+        ControlStyles.OptimizedDoubleBuffer,
+        true);
+
+            this.UpdateStyles();
         }
         protected override CreateParams CreateParams
         {
@@ -202,12 +209,45 @@ namespace CookieClicker
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            bool textAdisparut = false;
+
             for (int i = textePlutitoare.Count - 1; i >= 0; i--)
             {
-                textePlutitoare[i].Y -= 2f; textePlutitoare[i].Alpha -= 10;
-                if (textePlutitoare[i].Alpha <= 0) textePlutitoare.RemoveAt(i);
+                textePlutitoare[i].Y -= 2f;
+                textePlutitoare[i].Alpha -= 10;
+
+                if (textePlutitoare[i].Alpha <= 0)
+                {
+                    textePlutitoare.RemoveAt(i);
+                    textAdisparut = true;
+                }
             }
-            if (textePlutitoare.Count > 0) Invalidate();
+
+            if (textePlutitoare.Count > 0)
+            {
+                float minX = 99999, minY = 99999, maxX = 0, maxY = 0;
+
+                foreach (var txt in textePlutitoare)
+                {
+                    if (txt.X < minX) minX = txt.X;
+                    if (txt.Y < minY) minY = txt.Y;
+                    if (txt.X > maxX) maxX = txt.X;
+                    if (txt.Y > maxY) maxY = txt.Y;
+                }
+
+                Rectangle zonaAnimatie = new Rectangle(
+                    (int)minX - 100,
+                    (int)minY - 25,
+                    (int)(maxX - minX) + 200,
+                    (int)(maxY - minY) + 50
+                );
+
+                this.Invalidate(zonaAnimatie);
+            }
+            else if (textAdisparut)
+            {
+                this.Invalidate();
+            }
         }
 
         private void Form1_Resize(object sender, EventArgs e) { Invalidate(); }
