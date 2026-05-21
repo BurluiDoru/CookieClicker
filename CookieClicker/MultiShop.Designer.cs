@@ -1,171 +1,101 @@
-﻿namespace CookieClicker
+namespace CookieClicker
 {
     partial class MultiShop
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MultiShop));
-            multi2x = new Button();
-            label1 = new Label();
-            button1 = new Button();
-            multi5x = new Button();
-            multi10x = new Button();
-            multi25x = new Button();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            clipPanel = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel(); label1Title = new Label(); label1 = new Label(); label1Nr = new Label();
+            panel2 = new Panel(); label2Title = new Label(); label2 = new Label(); label2Nr = new Label();
+            panel3 = new Panel(); label3Title = new Label(); label3 = new Label(); label3Nr = new Label();
+            panel4 = new Panel(); label4Title = new Label(); label4 = new Label(); label4Nr = new Label();
+
+            clipPanel.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout(); panel2.SuspendLayout();
+            panel3.SuspendLayout(); panel4.SuspendLayout();
             SuspendLayout();
-            // 
-            // multi2x
-            // 
-            multi2x.Anchor = AnchorStyles.Bottom;
-            multi2x.Location = new Point(51, 331);
-            multi2x.Name = "multi2x";
-            multi2x.Size = new Size(127, 40);
-            multi2x.TabIndex = 0;
-            multi2x.Text = "2x multiplayer";
-            multi2x.UseVisualStyleBackColor = true;
-            multi2x.Click += multi2x_Click;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Bottom;
-            label1.AutoSize = true;
-            label1.Location = new Point(51, 374);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(269, 340);
-            button1.Name = "button1";
-            button1.Size = new Size(0, 0);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // multi5x
-            // 
-            multi5x.Anchor = AnchorStyles.Bottom;
-            multi5x.Location = new Point(251, 331);
-            multi5x.Name = "multi5x";
-            multi5x.Size = new Size(127, 40);
-            multi5x.TabIndex = 3;
-            multi5x.Text = "5x multilpayer";
-            multi5x.UseVisualStyleBackColor = true;
-            multi5x.Click += multi5x_Click_1;
-            // 
-            // multi10x
-            // 
-            multi10x.Anchor = AnchorStyles.Bottom;
-            multi10x.Location = new Point(445, 331);
-            multi10x.Name = "multi10x";
-            multi10x.Size = new Size(127, 40);
-            multi10x.TabIndex = 4;
-            multi10x.Text = "10x multiplayer";
-            multi10x.UseVisualStyleBackColor = true;
-            multi10x.Click += multi10x_Click_1;
-            // 
-            // multi25x
-            // 
-            multi25x.Anchor = AnchorStyles.Bottom;
-            multi25x.Location = new Point(631, 331);
-            multi25x.Name = "multi25x";
-            multi25x.Size = new Size(127, 40);
-            multi25x.TabIndex = 5;
-            multi25x.Text = "25x multiplayer";
-            multi25x.UseVisualStyleBackColor = true;
-            multi25x.Click += multi25x_Click_1;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Bottom;
-            label2.AutoSize = true;
-            label2.Location = new Point(251, 374);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 6;
-            label2.Text = "label2";
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Bottom;
-            label3.AutoSize = true;
-            label3.Location = new Point(445, 374);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 7;
-            label3.Text = "label3";
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Bottom;
-            label4.AutoSize = true;
-            label4.Location = new Point(631, 374);
-            label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 8;
-            label4.Text = "label4";
-            // 
-            // MultiShop
-            // 
+
+            // ── clipPanel ─────────────────────────────────────────
+            clipPanel.AutoScroll = false;
+            clipPanel.BackColor = Color.Transparent;
+            clipPanel.Location = new Point(1, 311);
+            clipPanel.Size = new Size(765, 76);
+            clipPanel.Name = "clipPanel";
+            clipPanel.TabIndex = 0;
+            clipPanel.Controls.Add(flowLayoutPanel1);
+
+            // ── flowLayoutPanel1 ───────────────────────────────────
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.BackColor = Color.Transparent;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(765, 76);
+            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.WrapContents = false;
+            flowLayoutPanel1.Controls.Add(panel1);
+            flowLayoutPanel1.Controls.Add(panel2);
+            flowLayoutPanel1.Controls.Add(panel3);
+            flowLayoutPanel1.Controls.Add(panel4);
+
+            // ── panel1: Multi 2× ───────────────────────────────────
+            panel1.Name = "panel1"; panel1.TabIndex = 1; panel1.Tag = "0";
+            panel1.Click += panel1_Click; label1Title.Click += panel1_Click;
+            label1.Click += panel1_Click; label1Nr.Click += panel1_Click;
+
+            // ── panel2: Multi 5× ───────────────────────────────────
+            panel2.Name = "panel2"; panel2.TabIndex = 2; panel2.Tag = "1";
+            panel2.Click += panel2_Click; label2Title.Click += panel2_Click;
+            label2.Click += panel2_Click; label2Nr.Click += panel2_Click;
+
+            // ── panel3: Multi 10× ──────────────────────────────────
+            panel3.Name = "panel3"; panel3.TabIndex = 3; panel3.Tag = "2";
+            panel3.Click += panel3_Click; label3Title.Click += panel3_Click;
+            label3.Click += panel3_Click; label3Nr.Click += panel3_Click;
+
+            // ── panel4: Multi 25× ──────────────────────────────────
+            panel4.Name = "panel4"; panel4.TabIndex = 4; panel4.Tag = "3";
+            panel4.Click += panel4_Click; label4Title.Click += panel4_Click;
+            label4.Click += panel4_Click; label4Nr.Click += panel4_Click;
+
+            // ── MultiShop Form ─────────────────────────────────────
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(764, 441);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(multi25x);
-            Controls.Add(multi10x);
-            Controls.Add(multi5x);
-            Controls.Add(button1);
-            Controls.Add(label1);
-            Controls.Add(multi2x);
+            Controls.Add(clipPanel);
             DoubleBuffered = true;
             Name = "MultiShop";
-            Text = "MultiShop";
+            Text = "Multiplier Shop";
+            flowLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false); panel1.PerformLayout();
+            panel2.ResumeLayout(false); panel2.PerformLayout();
+            panel3.ResumeLayout(false); panel3.PerformLayout();
+            panel4.ResumeLayout(false); panel4.PerformLayout();
+            clipPanel.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Button multi2x;
-        private Label label1;
-        private Button button1;
-        private Button multi5x;
-        private Button multi10x;
-        private Button multi25x;
-        private Label label2;
-        private Label label3;
-        private Label label4;
+        private Panel clipPanel;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel1; private Label label1Title; private Label label1; private Label label1Nr;
+        private Panel panel2; private Label label2Title; private Label label2; private Label label2Nr;
+        private Panel panel3; private Label label3Title; private Label label3; private Label label3Nr;
+        private Panel panel4; private Label label4Title; private Label label4; private Label label4Nr;
     }
 }

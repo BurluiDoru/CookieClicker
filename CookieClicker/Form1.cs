@@ -164,7 +164,7 @@ namespace CookieClicker
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (autoCookies > 0) { totalClicks += autoCookies; ActualizeazaInterfata(); }
+            if (autoCookies > 0) { totalClicks += autoCookies; if (fereastraRebirth != null) return; ActualizeazaInterfata(); }
             label2.Text = "CPS: " + Utilitare.FormateazaNumar(autoCookies + manualcps);
             manualcps = 0;
         }
@@ -248,7 +248,9 @@ namespace CookieClicker
             buttonCloseShop.Visible = false; }
         public void InchideRebirthShop() 
         { panelRebirth.Controls.Clear(); 
-            panelRebirth.Visible = false; }
+            panelRebirth.Visible = false;
+            fereastraRebirth = null;
+        }
         private void RebirthButton_Click(object sender, EventArgs e) { CumparaRebirth(); }
 
         

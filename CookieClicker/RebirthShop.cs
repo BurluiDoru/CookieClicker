@@ -15,6 +15,7 @@ namespace CookieClicker
         public RebirthShop()
         {
             InitializeComponent();
+            label1.ForeColor = Color.FromArgb(0, 0, 0);
         }
 
         private void butonInapoi_Click(object sender, EventArgs e)
@@ -66,6 +67,7 @@ namespace CookieClicker
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
     }
 }
 

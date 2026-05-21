@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing; // Obligatoriu pentru Color, Point, Size si Font
 using System.Windows.Forms;
 
 namespace CookieClicker
@@ -8,43 +9,86 @@ namespace CookieClicker
         public MultiShop()
         {
             InitializeComponent();
+
+            // Mutam codul de design aici pentru a-l proteja de Visual Studio Designer
+            // Aceste linii vor stiliza butoanele automat cand porneste jocul
+            StyleUpgradePanel(panel1, label1Title, "✨ Multi 2×", label1, label1Nr, new Point(3, 3), Color.FromArgb(45, 110, 185));
+            StyleUpgradePanel(panel2, label2Title, "✨ Multi 5×", label2, label2Nr, new Point(192, 3), Color.FromArgb(50, 155, 85));
+            StyleUpgradePanel(panel3, label3Title, "✨ Multi 10×", label3, label3Nr, new Point(381, 3), Color.FromArgb(185, 110, 25));
+            StyleUpgradePanel(panel4, label4Title, "✨ Multi 25×", label4, label4Nr, new Point(570, 3), Color.FromArgb(150, 50, 150));
+
             ActualizeazaPreturi();
+        }
+
+        // Metoda speciala ascunsa de Designer pentru a preveni stergerea interfetei
+        private static void StyleUpgradePanel(Panel pnl, Label titleLbl, string title, Label priceLbl, Label countLbl, Point location, Color accent)
+        {
+            pnl.BackColor = Color.FromArgb(30, 22, 12);
+            pnl.Location = location;
+            pnl.Size = new Size(185, 70);
+            pnl.Cursor = Cursors.Hand;
+
+            titleLbl.AutoSize = true;
+            titleLbl.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            titleLbl.ForeColor = accent;
+            titleLbl.BackColor = Color.Transparent;
+            titleLbl.Location = new Point(8, 8);
+            titleLbl.Text = title;
+            titleLbl.Cursor = Cursors.Hand;
+            pnl.Controls.Add(titleLbl);
+
+            priceLbl.AutoSize = true;
+            priceLbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            priceLbl.ForeColor = Color.FromArgb(220, 200, 140);
+            priceLbl.BackColor = Color.Transparent;
+            priceLbl.Location = new Point(8, 32);
+            priceLbl.Text = "Price: ...";
+            priceLbl.Cursor = Cursors.Hand;
+            pnl.Controls.Add(priceLbl);
+
+            countLbl.AutoSize = true;
+            countLbl.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            countLbl.ForeColor = Color.FromArgb(160, 160, 160);
+            countLbl.BackColor = Color.Transparent;
+            countLbl.Location = new Point(110, 8);
+            countLbl.Text = "Owned: 0";
+            countLbl.Cursor = Cursors.Hand;
+            pnl.Controls.Add(countLbl);
         }
 
         public void ActualizeazaPreturi()
         {
+            label1.Text = "Price: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[0].PretCurent);
+            label1Nr.Text = "Owned: " + CatalogUpgradeuri.listaMulti[0].Nivel;
 
+            label2.Text = "Price: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[1].PretCurent);
+            label2Nr.Text = "Owned: " + CatalogUpgradeuri.listaMulti[1].Nivel;
 
-            label1.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[0].PretCurent);
-            label2.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[1].PretCurent);
-            label3.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[2].PretCurent);
-            label4.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[3].PretCurent);
+            label3.Text = "Price: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[2].PretCurent);
+            label3Nr.Text = "Owned: " + CatalogUpgradeuri.listaMulti[2].Nivel;
+
+            label4.Text = "Price: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[3].PretCurent);
+            label4Nr.Text = "Owned: " + CatalogUpgradeuri.listaMulti[3].Nivel;
         }
 
-        private void multi2x_Click(object sender, EventArgs e)
+        private void panel1_Click(object sender, EventArgs e)
         {
-            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[0]);
-            if (succes == true)
-            {
-                ActualizeazaPreturi();
-            }
+            if (Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[0])) ActualizeazaPreturi();
         }
 
-        private void multi5x_Click_1(object sender, EventArgs e)
+        private void panel2_Click(object sender, EventArgs e)
         {
-            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[1]);
-            if (succes) ActualizeazaPreturi();
+            if (Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[1])) ActualizeazaPreturi();
         }
 
-        private void multi10x_Click_1(object sender, EventArgs e)
+        private void panel3_Click(object sender, EventArgs e)
         {
-            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[2]);
-            if (succes) ActualizeazaPreturi();
+            if (Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[2])) ActualizeazaPreturi();
         }
-        private void multi25x_Click_1(object sender, EventArgs e)
+
+        private void panel4_Click(object sender, EventArgs e)
         {
-            bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[3]);
-            if (succes) ActualizeazaPreturi();
+            if (Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[3])) ActualizeazaPreturi();
         }
     }
 }

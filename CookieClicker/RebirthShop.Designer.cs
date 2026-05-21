@@ -1,31 +1,17 @@
-﻿namespace CookieClicker
+namespace CookieClicker
 {
     partial class RebirthShop
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RebirthShop));
@@ -38,34 +24,53 @@
             // 
             // butonInapoi
             // 
+            butonInapoi.BackColor = Color.FromArgb(70, 60, 50);
+            butonInapoi.Cursor = Cursors.Hand;
+            butonInapoi.FlatAppearance.BorderSize = 0;
+            butonInapoi.FlatAppearance.MouseDownBackColor = Color.FromArgb(50, 42, 34);
+            butonInapoi.FlatAppearance.MouseOverBackColor = Color.FromArgb(100, 85, 65);
+            butonInapoi.FlatStyle = FlatStyle.Flat;
+            butonInapoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            butonInapoi.ForeColor = Color.White;
             butonInapoi.Location = new Point(12, 12);
             butonInapoi.Name = "butonInapoi";
-            butonInapoi.Size = new Size(75, 23);
+            butonInapoi.Size = new Size(90, 32);
             butonInapoi.TabIndex = 0;
-            butonInapoi.Text = "Inapoi";
-            butonInapoi.UseVisualStyleBackColor = true;
+            butonInapoi.Text = "← Back";
+            butonInapoi.UseVisualStyleBackColor = false;
             butonInapoi.Click += butonInapoi_Click;
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(338, 251);
+            button1.BackColor = Color.FromArgb(40, 10, 60);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(120, 40, 180);
+            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 5, 40);
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, 20, 100);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.FromArgb(200, 140, 255);
+            button1.Location = new Point(330, 245);
             button1.Name = "button1";
-            button1.Size = new Size(93, 57);
+            button1.Size = new Size(110, 56);
             button1.TabIndex = 1;
-            button1.Text = "SECRET";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "🔮 SECRET";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(338, 311);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(200, 180, 240);
+            label1.Location = new Point(330, 308);
             label1.Name = "label1";
-            label1.Size = new Size(125, 15);
+            label1.Size = new Size(138, 15);
             label1.TabIndex = 2;
-            label1.Text = "Pret:1000 Rebirt Points";
+            label1.Text = "Cost: 1000 Rebirth Points";
             // 
             // webView21
             // 
@@ -90,7 +95,7 @@
             Controls.Add(button1);
             Controls.Add(butonInapoi);
             Name = "RebirthShop";
-            Text = "RebirthShop";
+            Text = "Rebirth Shop";
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -1,115 +1,173 @@
-﻿namespace CookieClicker
+namespace CookieClicker
 {
     partial class ClickShop
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClickShop));
-            button3 = new Button();
-            button2 = new Button();
+            clipPanel = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel();
+            label1Title = new Label();
             label1 = new Label();
-            button1 = new Button();
+            label1Nr = new Label();
+            panel2 = new Panel();
+            label2Title = new Label();
             label2 = new Label();
+            label2Nr = new Label();
+            panel3 = new Panel();
+            label3Title = new Label();
             label3 = new Label();
+            label3Nr = new Label();
+            clipPanel.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
+
             // 
-            // button3
+            // clipPanel
             // 
-            button3.Anchor = AnchorStyles.Bottom;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(530, 326);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(164, 40);
-            button3.TabIndex = 2;
-            button3.Text = "+10 Cookies";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click_1;
+            clipPanel.BackColor = Color.Transparent;
+            clipPanel.Controls.Add(flowLayoutPanel1);
+            clipPanel.Location = new Point(1, 311);
+            clipPanel.Name = "clipPanel";
+            clipPanel.Size = new Size(765, 76);
+            clipPanel.TabIndex = 0;
+
             // 
-            // button2
+            // flowLayoutPanel1
             // 
-            button2.Anchor = AnchorStyles.Bottom;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(271, 326);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 40);
-            button2.TabIndex = 1;
-            button2.Text = "+5 Cookies";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click_1;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.BackColor = Color.Transparent;
+            flowLayoutPanel1.Controls.Add(panel1);
+            flowLayoutPanel1.Controls.Add(panel2);
+            flowLayoutPanel1.Controls.Add(panel3);
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(765, 76);
+            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.WrapContents = false;
+
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(245, 70);
+            panel1.TabIndex = 1;
+            panel1.Tag = "0";
+            panel1.Click += panel1_Click;
+
+            // 
+            // label1Title
+            // 
+            label1Title.Location = new Point(0, 0);
+            label1Title.Name = "label1Title";
+            label1Title.Size = new Size(100, 23);
+            label1Title.TabIndex = 0;
+            label1Title.Click += panel1_Click;
+
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Bottom;
-            label1.AutoSize = true;
-            label1.BackColor = Color.White;
-            label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(31, 368);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 3;
-            label1.Text = "label1";
+            label1.Size = new Size(100, 23);
+            label1.TabIndex = 0;
+            label1.Click += panel1_Click;
+
             // 
-            // button1
+            // label1Nr
             // 
-            button1.Anchor = AnchorStyles.Bottom;
-            button1.BackColor = Color.Transparent;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(31, 326);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 40);
-            button1.TabIndex = 0;
-            button1.Text = "+1 Cookies";
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_1;
+            label1Nr.Location = new Point(0, 0);
+            label1Nr.Name = "label1Nr";
+            label1Nr.Size = new Size(100, 23);
+            label1Nr.TabIndex = 0;
+            label1Nr.Click += panel1_Click;
+
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(254, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(245, 70);
+            panel2.TabIndex = 2;
+            panel2.Tag = "1";
+            panel2.Click += panel2_Click;
+
+            // 
+            // label2Title
+            // 
+            label2Title.Location = new Point(0, 0);
+            label2Title.Name = "label2Title";
+            label2Title.Size = new Size(100, 23);
+            label2Title.TabIndex = 0;
+            label2Title.Click += panel2_Click;
+
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Bottom;
-            label2.AutoSize = true;
-            label2.Location = new Point(271, 368);
+            label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 4;
-            label2.Text = "label2";
+            label2.Size = new Size(100, 23);
+            label2.TabIndex = 0;
+            label2.Click += panel2_Click;
+
+            // 
+            // label2Nr
+            // 
+            label2Nr.Location = new Point(0, 0);
+            label2Nr.Name = "label2Nr";
+            label2Nr.Size = new Size(100, 23);
+            label2Nr.TabIndex = 0;
+            label2Nr.Click += panel2_Click;
+
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(505, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(245, 70);
+            panel3.TabIndex = 3;
+            panel3.Tag = "2";
+            panel3.Click += panel3_Click;
+
+            // 
+            // label3Title
+            // 
+            label3Title.Location = new Point(0, 0);
+            label3Title.Name = "label3Title";
+            label3Title.Size = new Size(100, 23);
+            label3Title.TabIndex = 0;
+            label3Title.Click += panel3_Click;
+
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Bottom;
-            label3.AutoSize = true;
-            label3.Location = new Point(530, 368);
+            label3.Location = new Point(0, 0);
             label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 5;
-            label3.Text = "label3";
+            label3.Size = new Size(100, 23);
+            label3.TabIndex = 0;
+            label3.Click += panel3_Click;
+
+            // 
+            // label3Nr
+            // 
+            label3Nr.Location = new Point(0, 0);
+            label3Nr.Name = "label3Nr";
+            label3Nr.Size = new Size(100, 23);
+            label3Nr.TabIndex = 0;
+            label3Nr.Click += panel3_Click;
+
             // 
             // ClickShop
             // 
@@ -118,28 +176,31 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(764, 442);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(clipPanel);
             DoubleBuffered = true;
             Margin = new Padding(3, 2, 3, 2);
             Name = "ClickShop";
-            Text = "Shop";
+            Text = "Click Shop";
+            clipPanel.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
-
         }
 
         #endregion
 
-        private Button button3;
-        private Button button2;
+        private Panel clipPanel;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel1;
+        private Label label1Title;
         private Label label1;
-        private Button button1;
+        private Label label1Nr;
+        private Panel panel2;
+        private Label label2Title;
         private Label label2;
+        private Label label2Nr;
+        private Panel panel3;
+        private Label label3Title;
         private Label label3;
+        private Label label3Nr;
     }
 }
