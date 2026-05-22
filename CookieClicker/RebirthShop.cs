@@ -16,6 +16,7 @@ namespace CookieClicker
         public RebirthShop()
         {
             InitializeComponent();
+
             label1.ForeColor = Color.FromArgb(0, 0, 0);
         }
 

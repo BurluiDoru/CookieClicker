@@ -9,7 +9,11 @@ namespace CookieClicker
         public ClickShop()
         {
             InitializeComponent();
+            typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+        ?.SetValue(flowLayoutPanel1, true, null);
 
+            typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.SetValue(clipPanel, true, null);
             StyleUpgradePanel(panel1, label1Title, "🍪 Click +1", label1, label1Nr, new Point(3, 3), Color.FromArgb(45, 110, 185));
             StyleUpgradePanel(panel2, label2Title, "🍪 Click +5", label2, label2Nr, new Point(254, 3), Color.FromArgb(50, 155, 85));
             StyleUpgradePanel(panel3, label3Title, "🍪 Click +10", label3, label3Nr, new Point(505, 3), Color.FromArgb(185, 110, 25));

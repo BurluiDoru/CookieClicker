@@ -9,7 +9,11 @@ namespace CookieClicker
         public AutoShop()
         {
             InitializeComponent();
+            typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+        ?.SetValue(flowLayoutPanel1, true, null);
 
+            typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.SetValue(clipPanel, true, null);
             StyleUpgradePanel(AutoUpgrade1, label4, "⚙ Auto CPS +1", PretAutoUpgrade1, AutoUpgrade1Nr, new Point(3, 3), 7, Color.FromArgb(45, 110, 185));
             StyleUpgradePanel(panel2, label10, "⚙ Auto CPS +5", PretAutoUpgrade2, AutoUpgrade2Nr, new Point(254, 3), 8, Color.FromArgb(50, 155, 85));
             StyleUpgradePanel(AutoUpgrade3, label7, "⚙ Auto CPS +10", PretAutoUpgrade3, AutoUpgrade3Nr, new Point(505, 3), 8, Color.FromArgb(185, 110, 25));

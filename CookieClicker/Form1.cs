@@ -9,7 +9,6 @@ namespace CookieClicker
 {
     public partial class Form1 : Form
     {
-
         public double totalClicks = 0;
         public double Multi = 1;
         public double click = 1;
@@ -28,13 +27,18 @@ namespace CookieClicker
         RebirthShop fereastraRebirth = null;
 
         DateTime ultimuclick = DateTime.MinValue;
-        int cooldownclickms = 100;
-
+        int cooldownclickms = 150;
+        System.Media.SoundPlayer playerSunetClick = new System.Media.SoundPlayer(@"D:\c++\cookieclicker-cica\CookieClicker\CookieClicker\sunet_click.wav");
         public static Form1 Instanta;
+
+        // Variabila pentru a tine minte daca sunetul de click este activat sau oprit
+        private bool sunetClickActivat = true;
 
         public Form1()
         {
             InitializeComponent();
+            typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+        ?.SetValue(panelshop, true, null);
             Instanta = this;
             this.DoubleBuffered = true;
             this.SetStyle(
@@ -44,6 +48,56 @@ namespace CookieClicker
         true);
 
             this.UpdateStyles();
+        }
+
+        // Importam functia audio din sistemul de operare Windows
+        [System.Runtime.InteropServices.DllImport("winmm.dll")]
+        private static extern long mciSendString(string command, string returnString, int returnSize, IntPtr hwndCallback);
+
+        private void PornesteMuzicaFundal()
+        {
+            string caleMp3 = @"D:\c++\cookieclicker-cica\CookieClicker\CookieClicker\muzica.mp3";
+
+            try
+            {
+                // Deschidem fisierul mp3 sub numele de alias MuzicaFundal
+                mciSendString("open \"" + caleMp3 + "\" type mpegvideo alias MuzicaFundal", null, 0, IntPtr.Zero);
+
+                // Ii dam play pe repeta loop continuu
+                mciSendString("play MuzicaFundal repeat", null, 0, IntPtr.Zero);
+
+                // Setam automat volumul la valoarea initiala a slider-ului (500)
+                int volumInitial = trackBarVolum.Value * 10;
+                mciSendString("setaudio MuzicaFundal volume to " + volumInitial, null, 0, IntPtr.Zero);
+            }
+            catch
+            {
+                // Ignoram eroarea in caz ca fisierul lipseste sau calea e gresita
+            }
+        }
+
+        // Functia care se apeleaza cand misti slider-ul de volum
+        private void trackBarVolum_Scroll(object sender, EventArgs e)
+        {
+            // Valoarea slider-ului este 0-100, MCI accepta 0-1000
+            int volumMCI = trackBarVolum.Value * 10;
+            mciSendString("setaudio MuzicaFundal volume to " + volumMCI, null, 0, IntPtr.Zero);
+        }
+
+        // Functia care porneste/opreste sunetul de click
+        private void buttonMuteClick_Click(object sender, EventArgs e)
+        {
+            sunetClickActivat = !sunetClickActivat;
+            if (sunetClickActivat)
+            {
+                buttonMuteClick.Text = "🔊 Click Sound: ON";
+                buttonMuteClick.BackColor = Color.FromArgb(45, 110, 185);
+            }
+            else
+            {
+                buttonMuteClick.Text = "🔇 Click Sound: OFF";
+                buttonMuteClick.BackColor = Color.FromArgb(100, 100, 100);
+            }
         }
         protected override CreateParams CreateParams
         {
@@ -67,6 +121,7 @@ namespace CookieClicker
 
             panelshop.Visible = false;
             buttonCloseShop.Visible = false;
+            PornesteMuzicaFundal();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -200,6 +255,9 @@ namespace CookieClicker
                 AdaugaCookie();
                 textePlutitoare.Add(new Utilitare.TextPlutitor { X = e.X, Y = e.Y, Text = "+" + Utilitare.FormateazaNumar(click * Multi) });
             }
+            if (sunetClickActivat){
+                try { playerSunetClick.Play(); } catch { } 
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -262,10 +320,17 @@ namespace CookieClicker
 
         private void DeschideInPanel(Form shopForm)
         {
+            panelshop.SuspendLayout();
+
             panelshop.Controls.Clear();
-            shopForm.TopLevel = false; shopForm.FormBorderStyle = FormBorderStyle.None; shopForm.Dock = DockStyle.Fill;
-            panelshop.Controls.Add(shopForm); shopForm.Show();
-            panelshop.Visible = true; buttonCloseShop.Visible = true;
+            shopForm.TopLevel = false;
+            shopForm.FormBorderStyle = FormBorderStyle.None;
+            shopForm.Dock = DockStyle.Fill;
+            panelshop.Controls.Add(shopForm);
+            shopForm.Show();
+            panelshop.Visible = true;
+            buttonCloseShop.Visible = true;
+            panelshop.ResumeLayout();
         }
 
         private void ClickShop_Click(object sender, EventArgs e)
