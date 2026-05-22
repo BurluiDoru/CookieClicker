@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Drawing; 
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CookieClicker
@@ -11,9 +11,9 @@ namespace CookieClicker
             InitializeComponent();
 
             StyleUpgradePanel(panel1, label1Title, "✨ Multi 2×", label1, label1Nr, new Point(3, 3), Color.FromArgb(45, 110, 185));
-            StyleUpgradePanel(panel2, label2Title, "✨ Multi 5×", label2, label2Nr, new Point(192, 3), Color.FromArgb(50, 155, 85));
-            StyleUpgradePanel(panel3, label3Title, "✨ Multi 10×", label3, label3Nr, new Point(381, 3), Color.FromArgb(185, 110, 25));
-            StyleUpgradePanel(panel4, label4Title, "✨ Multi 25×", label4, label4Nr, new Point(570, 3), Color.FromArgb(150, 50, 150));
+            StyleUpgradePanel(panel2, label2Title, "✨ Multi 5×", label2, label2Nr, new Point(254, 3), Color.FromArgb(50, 155, 85));
+            StyleUpgradePanel(panel3, label3Title, "✨ Multi 10×", label3, label3Nr, new Point(505, 3), Color.FromArgb(185, 110, 25));
+            StyleUpgradePanel(panel4, label4Title, "✨ Multi 25×", label4, label4Nr, new Point(756, 3), Color.FromArgb(150, 50, 150));
 
             ActualizeazaPreturi();
         }
@@ -22,7 +22,8 @@ namespace CookieClicker
         {
             pnl.BackColor = Color.FromArgb(30, 22, 12);
             pnl.Location = location;
-            pnl.Size = new Size(185, 70);
+            // Updated to match AutoShop (245x70)
+            pnl.Size = new Size(245, 70);
             pnl.Cursor = Cursors.Hand;
 
             titleLbl.AutoSize = true;
@@ -47,7 +48,8 @@ namespace CookieClicker
             countLbl.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             countLbl.ForeColor = Color.FromArgb(160, 160, 160);
             countLbl.BackColor = Color.Transparent;
-            countLbl.Location = new Point(110, 8);
+            // Updated location to match AutoShop (160 instead of 110)
+            countLbl.Location = new Point(160, 8);
             countLbl.Text = "Owned: 0";
             countLbl.Cursor = Cursors.Hand;
             pnl.Controls.Add(countLbl);
