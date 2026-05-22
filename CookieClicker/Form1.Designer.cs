@@ -41,14 +41,14 @@ namespace CookieClicker
             SuspendLayout();
 
             // ── Shop nav buttons ───────────────────────────────────
-            StyleShopButton(ClickShop, "🍪 Click Shop",   new Point(12, 24));
-            StyleShopButton(MultiShop,        "✨ Multi Shop",   new Point(12, 78));
-            StyleShopButton(AutoShop,         "⚙️ Auto Shop",    new Point(12, 130));
+            StyleShopButton(ClickShop, "🍪 Click Shop", new Point(12, 24));
+            StyleShopButton(MultiShop, "✨ Multi Shop", new Point(12, 78));
+            StyleShopButton(AutoShop, "⚙️ Auto Shop", new Point(12, 130));
             StyleShopButton(butonRebirthShop, "⭐ Rebirth Shop", new Point(12, 186));
 
-            ClickShop.Name       = "ClickShop";       ClickShop.TabIndex  = 0;  ClickShop.Click       += ClickShop_Click;
-            MultiShop.Name       = "MultiShop";       MultiShop.TabIndex  = 10; MultiShop.Click       += MultiShop_Click;
-            AutoShop.Name        = "AutoShop";         AutoShop.TabIndex  = 11; AutoShop.Click        += AutoShop_Click_1;
+            ClickShop.Name = "ClickShop"; ClickShop.TabIndex = 0; ClickShop.Click += ClickShop_Click;
+            MultiShop.Name = "MultiShop"; MultiShop.TabIndex = 10; MultiShop.Click += MultiShop_Click;
+            AutoShop.Name = "AutoShop"; AutoShop.TabIndex = 11; AutoShop.Click += AutoShop_Click_1;
             butonRebirthShop.Name = "butonRebirthShop"; butonRebirthShop.TabIndex = 0;
             butonRebirthShop.BackColor = Color.FromArgb(70, 50, 130);
             butonRebirthShop.FlatAppearance.MouseOverBackColor = Color.FromArgb(95, 70, 165);
@@ -98,10 +98,10 @@ namespace CookieClicker
             buttonCloseShop.Click += buttonCloseShop_Click_1;
 
             // ── Stat panels (black) ────────────────────────────────
-            StyleStatPanel(panelCookies,       new Point(1590, 12),  280, 40);
-            StyleStatPanel(panelCPS,           new Point(1590, 58),  280, 34);
-            StyleStatPanel(panelRebirthPoints, new Point(1590, 98),  280, 34);
-            StyleStatPanel(panelPretRebirth,   new Point(898, 66),   280, 28);
+            StyleStatPanel(panelCookies, new Point(1590, 12), 280, 40);
+            StyleStatPanel(panelCPS, new Point(1590, 58), 280, 34);
+            StyleStatPanel(panelRebirthPoints, new Point(1590, 98), 280, 34);
+            StyleStatPanel(panelPretRebirth, new Point(898, 66), 280, 28);
 
             // ── label1: Cookies ────────────────────────────────────
             label1.Anchor = AnchorStyles.None;
@@ -165,7 +165,7 @@ namespace CookieClicker
 
             // ── timers ─────────────────────────────────────────────
             timer1.Enabled = true; timer1.Interval = 1000; timer1.Tick += timer1_Tick;
-            timer2.Enabled = true; timer2.Interval = 30;   timer2.Tick += timer2_Tick;
+            timer2.Enabled = true; timer2.Interval = 30; timer2.Tick += timer2_Tick;
 
             // ── Form1 ──────────────────────────────────────────────
             AutoScaleDimensions = new SizeF(7F, 15F);

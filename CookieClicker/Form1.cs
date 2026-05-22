@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq; 
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CookieClicker
 {
     public partial class Form1 : Form
     {
-       
+
         public double totalClicks = 0;
         public double Multi = 1;
         public double click = 1;
@@ -50,7 +50,7 @@ namespace CookieClicker
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -85,7 +85,7 @@ namespace CookieClicker
                 if (upg.Tip == TipUpgrade.Multi) Multi += upg.Bonus;
                 if (upg.Tip == TipUpgrade.Auto) autoCookies += upg.Bonus;
 
-                upg.PretCurent *= 2; 
+                upg.PretCurent *= 2;
 
                 ActualizeazaInterfata();
                 return true;
@@ -100,11 +100,11 @@ namespace CookieClicker
             if (totalClicks >= pretrebirth)
             {
                 totalClicks = 0; Multi = 1; click = 1; autoCookies = 0;
-                rebirths++; 
+                rebirths++;
                 rebirthpoints += 1;
                 pretrebirth *= 10;
 
-               
+
                 CurataListaPreturi();
                 fereastraClickShop = null;
                 fereastraMultiShop = null;
@@ -144,22 +144,30 @@ namespace CookieClicker
 
         private void CurataListaPreturi()
         {
-            foreach (var upg in CatalogUpgradeuri.listaClick) {
-                upg.PretCurent = upg.PretDeBaza; 
-                upg.Nivel = 0; }
-            foreach (var upg in CatalogUpgradeuri.listaMulti) { 
+            foreach (var upg in CatalogUpgradeuri.listaClick)
+            {
                 upg.PretCurent = upg.PretDeBaza;
-                upg.Nivel = 0; }
-            foreach (var upg in CatalogUpgradeuri.listaAuto) { 
+                upg.Nivel = 0;
+            }
+            foreach (var upg in CatalogUpgradeuri.listaMulti)
+            {
                 upg.PretCurent = upg.PretDeBaza;
-                upg.Nivel = 0; }
+                upg.Nivel = 0;
+            }
+            foreach (var upg in CatalogUpgradeuri.listaAuto)
+            {
+                upg.PretCurent = upg.PretDeBaza;
+                upg.Nivel = 0;
+            }
         }
 
 
-        private void AdaugaCookie() 
-        { totalClicks += (click * Multi); 
-            manualcps += (click * Multi); 
-            ActualizeazaInterfata(); }
+        private void AdaugaCookie()
+        {
+            totalClicks += (click * Multi);
+            manualcps += (click * Multi);
+            ActualizeazaInterfata();
+        }
 
         public void ActualizeazaInterfata()
         {
@@ -178,8 +186,8 @@ namespace CookieClicker
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-                if ((DateTime.Now - ultimuclick).TotalMilliseconds < cooldownclickms || BackgroundImage == null) return;
-      
+            if ((DateTime.Now - ultimuclick).TotalMilliseconds < cooldownclickms || BackgroundImage == null) return;
+
             float scala = Math.Min((float)ClientSize.Width / BackgroundImage.Width, (float)ClientSize.Height / BackgroundImage.Height);
             float razaCookie = (BackgroundImage.Width * scala * 0.23f) / 2f;
 
@@ -260,18 +268,24 @@ namespace CookieClicker
             panelshop.Visible = true; buttonCloseShop.Visible = true;
         }
 
-        private void ClickShop_Click(object sender, EventArgs e) 
-        { if (fereastraClickShop == null || fereastraClickShop.IsDisposed) 
-                fereastraClickShop = new ClickShop(); 
-            DeschideInPanel(fereastraClickShop);}
+        private void ClickShop_Click(object sender, EventArgs e)
+        {
+            if (fereastraClickShop == null || fereastraClickShop.IsDisposed)
+                fereastraClickShop = new ClickShop();
+            DeschideInPanel(fereastraClickShop);
+        }
         private void MultiShop_Click(object sender, EventArgs e)
-        { if (fereastraMultiShop == null || fereastraMultiShop.IsDisposed)
-                fereastraMultiShop = new MultiShop(); 
-            DeschideInPanel(fereastraMultiShop); }
-        private void AutoShop_Click_1(object sender, EventArgs e) 
-        { if (fereastraAutoShop == null || fereastraAutoShop.IsDisposed) 
+        {
+            if (fereastraMultiShop == null || fereastraMultiShop.IsDisposed)
+                fereastraMultiShop = new MultiShop();
+            DeschideInPanel(fereastraMultiShop);
+        }
+        private void AutoShop_Click_1(object sender, EventArgs e)
+        {
+            if (fereastraAutoShop == null || fereastraAutoShop.IsDisposed)
                 fereastraAutoShop = new AutoShop();
-            DeschideInPanel(fereastraAutoShop); }
+            DeschideInPanel(fereastraAutoShop);
+        }
 
         private void butonRebirthShop_Click(object sender, EventArgs e)
         {
@@ -283,16 +297,19 @@ namespace CookieClicker
         }
 
         private void buttonCloseShop_Click_1(object sender, EventArgs e)
-        { panelshop.Controls.Clear();
-            panelshop.Visible = false; 
-            buttonCloseShop.Visible = false; }
-        public void InchideRebirthShop() 
-        { panelRebirth.Controls.Clear(); 
+        {
+            panelshop.Controls.Clear();
+            panelshop.Visible = false;
+            buttonCloseShop.Visible = false;
+        }
+        public void InchideRebirthShop()
+        {
+            panelRebirth.Controls.Clear();
             panelRebirth.Visible = false;
             fereastraRebirth = null;
         }
         private void RebirthButton_Click(object sender, EventArgs e) { CumparaRebirth(); }
 
-        
+
     }
 }
