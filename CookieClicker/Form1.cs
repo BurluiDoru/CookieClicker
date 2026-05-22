@@ -31,7 +31,6 @@ namespace CookieClicker
         System.Media.SoundPlayer playerSunetClick = new System.Media.SoundPlayer(@"D:\c++\cookieclicker-cica\CookieClicker\CookieClicker\sunet_click.wav");
         public static Form1 Instanta;
 
-        // Variabila pentru a tine minte daca sunetul de click este activat sau oprit
         private bool sunetClickActivat = true;
 
         public Form1()
@@ -50,7 +49,6 @@ namespace CookieClicker
             this.UpdateStyles();
         }
 
-        // Importam functia audio din sistemul de operare Windows
         [System.Runtime.InteropServices.DllImport("winmm.dll")]
         private static extern long mciSendString(string command, string returnString, int returnSize, IntPtr hwndCallback);
 
@@ -60,31 +58,24 @@ namespace CookieClicker
 
             try
             {
-                // Deschidem fisierul mp3 sub numele de alias MuzicaFundal
                 mciSendString("open \"" + caleMp3 + "\" type mpegvideo alias MuzicaFundal", null, 0, IntPtr.Zero);
 
-                // Ii dam play pe repeta loop continuu
                 mciSendString("play MuzicaFundal repeat", null, 0, IntPtr.Zero);
 
-                // Setam automat volumul la valoarea initiala a slider-ului (500)
                 int volumInitial = trackBarVolum.Value * 10;
                 mciSendString("setaudio MuzicaFundal volume to " + volumInitial, null, 0, IntPtr.Zero);
             }
             catch
             {
-                // Ignoram eroarea in caz ca fisierul lipseste sau calea e gresita
             }
         }
 
-        // Functia care se apeleaza cand misti slider-ul de volum
         private void trackBarVolum_Scroll(object sender, EventArgs e)
         {
-            // Valoarea slider-ului este 0-100, MCI accepta 0-1000
             int volumMCI = trackBarVolum.Value * 10;
             mciSendString("setaudio MuzicaFundal volume to " + volumMCI, null, 0, IntPtr.Zero);
         }
 
-        // Functia care porneste/opreste sunetul de click
         private void buttonMuteClick_Click(object sender, EventArgs e)
         {
             sunetClickActivat = !sunetClickActivat;

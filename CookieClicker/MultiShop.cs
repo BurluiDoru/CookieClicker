@@ -26,7 +26,6 @@ namespace CookieClicker
         {
             pnl.BackColor = Color.FromArgb(30, 22, 12);
             pnl.Location = location;
-            // Updated to match AutoShop (245x70)
             pnl.Size = new Size(245, 70);
             pnl.Cursor = Cursors.Hand;
 
@@ -52,7 +51,6 @@ namespace CookieClicker
             countLbl.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             countLbl.ForeColor = Color.FromArgb(160, 160, 160);
             countLbl.BackColor = Color.Transparent;
-            // Updated location to match AutoShop (160 instead of 110)
             countLbl.Location = new Point(160, 8);
             countLbl.Text = "Owned: 0";
             countLbl.Cursor = Cursors.Hand;
