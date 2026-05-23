@@ -6,6 +6,7 @@ namespace CookieClicker
 {
     public partial class MultiShop : Form
     {
+        // Constructorul form-ului, unde se seteaza proprietatile de baza si se adauga panourile pentru fiecare upgrade
         public MultiShop()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace CookieClicker
 
             ActualizeazaPreturi();
         }
-
+        // Metoda pentru stilizarea panourilor de upgrade, care seteaza culorile, fonturile si pozitiile elementelor
         private static void StyleUpgradePanel(Panel pnl, Label titleLbl, string title, Label priceLbl, Label countLbl, Point location, Color accent)
         {
             pnl.BackColor = Color.FromArgb(30, 22, 12);
@@ -56,7 +57,7 @@ namespace CookieClicker
             countLbl.Cursor = Cursors.Hand;
             pnl.Controls.Add(countLbl);
         }
-
+        // Actualizeaza preturile si cantitatile afisate
         public void ActualizeazaPreturi()
         {
             label1.Text = "Price: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[0].PretCurent);
@@ -71,7 +72,7 @@ namespace CookieClicker
             label4.Text = "Price: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaMulti[3].PretCurent);
             label4Nr.Text = "Owned: " + CatalogUpgradeuri.listaMulti[3].Nivel;
         }
-
+        // Evenimentele de click pentru fiecare upgrade
         private void panel1_Click(object sender, EventArgs e)
         {
             if (Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaMulti[0])) ActualizeazaPreturi();

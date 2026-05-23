@@ -9,30 +9,34 @@ namespace CookieClicker
 {
     public partial class Form1 : Form
     {
+        //variabilele principale ale jocului
         public double totalClicks = 0;
         public double Multi = 1;
         public double click = 1;
         public double autoCookies = 0;
         public double manualcps = 0;
-
+        //variabile pentru rebirth
         public int rebirths = 0;
         public int rebirthpoints = 0;
         public double pretrebirth = 1e3;
-
+        // Lista pentru textul plutitor
         List<Utilitare.TextPlutitor> textePlutitoare = new List<Utilitare.TextPlutitor>();
-
+        // Ferestrele pentru magazine
         ClickShop fereastraClickShop = null;
         MultiShop fereastraMultiShop = null;
         AutoShop fereastraAutoShop = null;
         RebirthShop fereastraRebirth = null;
-
+        //variabile pentru click cooldown
         DateTime ultimuclick = DateTime.MinValue;
         int cooldownclickms = 150;
+        //variabila pentru sunet click ca sa sa nu se reseteze la fiecare click
         System.Media.SoundPlayer playerSunetClick = new System.Media.SoundPlayer(@"D:\c++\cookieclicker-cica\CookieClicker\CookieClicker\sunet_click.wav");
+        private bool sunetClickActivat = true;
+        //instanta pentru a putea fi accesata din alte formuri
         public static Form1 Instanta;
 
-        private bool sunetClickActivat = true;
 
+        //constructorul formului
         public Form1()
         {
             InitializeComponent();
@@ -48,10 +52,10 @@ namespace CookieClicker
 
             this.UpdateStyles();
         }
-
+        // Importul pentru functia mciSendString din winmm.dll pentru a putea reda muzica de fundal
         [System.Runtime.InteropServices.DllImport("winmm.dll")]
         private static extern long mciSendString(string command, string returnString, int returnSize, IntPtr hwndCallback);
-
+        // Functia pentru a porni muzica de fundal si a seta volumul initial
         private void PornesteMuzicaFundal()
         {
             string caleMp3 = @"D:\c++\cookieclicker-cica\CookieClicker\CookieClicker\muzica.mp3";
@@ -69,13 +73,13 @@ namespace CookieClicker
             {
             }
         }
-
+        //volume meter pentru a schimba volumul muzicii de fundal
         private void trackBarVolum_Scroll(object sender, EventArgs e)
         {
             int volumMCI = trackBarVolum.Value * 10;
             mciSendString("setaudio MuzicaFundal volume to " + volumMCI, null, 0, IntPtr.Zero);
         }
-
+        //buton pentru a activa/dezactiva sunetul de click
         private void buttonMuteClick_Click(object sender, EventArgs e)
         {
             sunetClickActivat = !sunetClickActivat;
@@ -90,6 +94,7 @@ namespace CookieClicker
                 buttonMuteClick.BackColor = Color.FromArgb(100, 100, 100);
             }
         }
+        // Suprascrierea CreateParams pentru a adauga stilul WS_EX_COMPOSITED si a reduce flicker-ul
         protected override CreateParams CreateParams
         {
             get
@@ -114,12 +119,12 @@ namespace CookieClicker
             buttonCloseShop.Visible = false;
             PornesteMuzicaFundal();
         }
-
+        // Salvarea progresului la inchiderea jocului
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Utilitare.Save(this);
         }
-
+        // Functia pentru a cumpara un upgrade
         public bool CumparaUpgrade(Upgrade upg)
         {
             if (totalClicks >= upg.PretCurent)
@@ -140,7 +145,7 @@ namespace CookieClicker
             MessageBox.Show("Nu ai destule prajituri!", "Atentie");
             return false;
         }
-
+        // Functia pentru a cumpara un rebirth
         public bool CumparaRebirth()
         {
             if (totalClicks >= pretrebirth)
@@ -164,7 +169,7 @@ namespace CookieClicker
             MessageBox.Show("Nu ai destule prajituri pentru a face un rebirth!", "Atentie");
             return false;
         }
-
+        // Buton pentru a reseta tot progresul
         private void buttonReset_Click(object sender, EventArgs e)
         {
             DialogResult raspuns = MessageBox.Show(
@@ -187,7 +192,7 @@ namespace CookieClicker
                 ActualizeazaInterfata();
             }
         }
-
+        // Functia pentru a reseta preturile si nivelele upgrade-urilor la 0 dupa un rebirth sau hard reset
         private void CurataListaPreturi()
         {
             foreach (var upg in CatalogUpgradeuri.listaClick)
@@ -206,15 +211,14 @@ namespace CookieClicker
                 upg.Nivel = 0;
             }
         }
-
-
+        // Functia pentru a adauga cookie-uri la numar dupa un click
         private void AdaugaCookie()
         {
             totalClicks += (click * Multi);
             manualcps += (click * Multi);
             ActualizeazaInterfata();
         }
-
+        // Functia pentru a actualiza interfata cu noile valori
         public void ActualizeazaInterfata()
         {
             label1.Text = "Cookies: " + Utilitare.FormateazaNumar(totalClicks);
@@ -222,14 +226,14 @@ namespace CookieClicker
             RebirthPrice.Text = "Pret Rebirth: " + Utilitare.FormateazaNumar(pretrebirth) + " Cookies";
             RebirthButton.BackColor = totalClicks >= pretrebirth ? Color.Green : Color.Red;
         }
-
+        // Timer pentru a adauga cookie-uri automate si a actualiza CPS-ul
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (autoCookies > 0) { totalClicks += autoCookies; if (fereastraRebirth != null) return; ActualizeazaInterfata(); }
             label2.Text = "CPS: " + Utilitare.FormateazaNumar(autoCookies + manualcps);
             manualcps = 0;
         }
-
+        // Functia pentru a detecta click-urile pe cookie si a adauga cookie-uri in consecinta, precum si pentru a reda sunetul de click
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
             if ((DateTime.Now - ultimuclick).TotalMilliseconds < cooldownclickms || BackgroundImage == null) return;
@@ -250,7 +254,7 @@ namespace CookieClicker
                 try { playerSunetClick.Play(); } catch { } 
             }
         }
-
+        // Functia pentru a desena cate cookie-uri au fost adaugate la fiecare click
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             if (BackgroundImage == null) return;
@@ -263,7 +267,7 @@ namespace CookieClicker
                 }
             }
         }
-
+        // Timer pentru a anima textul plutitor si a-l face sa dispara treptat
         private void timer2_Tick(object sender, EventArgs e)
         {
             bool textAdisparut = false;
@@ -306,9 +310,9 @@ namespace CookieClicker
                 this.Invalidate();
             }
         }
-
+        // Suprascrierea metodei OnResize pentru a invalida form-ul si a forta redesenarea la redimensionare, astfel incat textul plutitor sa se pozitioneze corect
         private void Form1_Resize(object sender, EventArgs e) { Invalidate(); }
-
+        // Functia pentru a deschide o form in panelul dedicat magazinului
         private void DeschideInPanel(Form shopForm)
         {
             panelshop.SuspendLayout();
@@ -323,7 +327,7 @@ namespace CookieClicker
             buttonCloseShop.Visible = true;
             panelshop.ResumeLayout();
         }
-
+        // Functiile pentru a deschide fiecare magazin in parte, verificand daca fereastra exista deja pentru a nu crea multiple instante
         private void ClickShop_Click(object sender, EventArgs e)
         {
             if (fereastraClickShop == null || fereastraClickShop.IsDisposed)
@@ -342,7 +346,7 @@ namespace CookieClicker
                 fereastraAutoShop = new AutoShop();
             DeschideInPanel(fereastraAutoShop);
         }
-
+        // Functia pentru a deschide magazinul de rebirth, care este putin diferit deoarece are un panel dedicat in form    
         private void butonRebirthShop_Click(object sender, EventArgs e)
         {
             if (fereastraRebirth == null || fereastraRebirth.IsDisposed) fereastraRebirth = new RebirthShop();
@@ -351,19 +355,21 @@ namespace CookieClicker
             panelRebirth.Controls.Add(fereastraRebirth); fereastraRebirth.Show();
             panelRebirth.BringToFront(); panelRebirth.Visible = true;
         }
-
+        // Functia pentru a inchide magazinul deschis in panelul dedicat
         private void buttonCloseShop_Click_1(object sender, EventArgs e)
         {
             panelshop.Controls.Clear();
             panelshop.Visible = false;
             buttonCloseShop.Visible = false;
         }
+        // Functia pentru a inchide magazinul de rebirth
         public void InchideRebirthShop()
         {
             panelRebirth.Controls.Clear();
             panelRebirth.Visible = false;
             fereastraRebirth = null;
         }
+        // Functia pentru a cumpara un rebirth, apelata din butonul din RebirthShop
         private void RebirthButton_Click(object sender, EventArgs e) { CumparaRebirth(); }
 
 

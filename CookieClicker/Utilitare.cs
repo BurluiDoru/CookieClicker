@@ -30,6 +30,7 @@ namespace CookieClicker
             if (numar >= 1e3) return (numar / 1e3).ToString("0.##") + " K";
             return Math.Floor(numar).ToString();
         }
+        // Salvează starea jocului în setările aplicației
         public static void Save(Form1 joc)
         {
             Properties.Settings.Default.SavedClicks = joc.totalClicks;
@@ -55,6 +56,7 @@ namespace CookieClicker
 
             Properties.Settings.Default.Save();
         }
+        // Încarcă nivelurile dintr-un șir de salvare și le aplică la lista de upgrade-uri
         public static void IncarcaNiveluriDinSalvare(System.Collections.Generic.List<Upgrade> lista, string salvare)
         {
             if (string.IsNullOrEmpty(salvare)) return;
@@ -68,6 +70,7 @@ namespace CookieClicker
                 }
             }
         }
+        // Încarcă starea jocului din setările aplicației
         public static void Load(Form1 joc)
         {
             joc.totalClicks = Properties.Settings.Default.SavedClicks;
@@ -88,7 +91,7 @@ namespace CookieClicker
             IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaMulti, Properties.Settings.Default.SalvarePreturiMulti);
             IncarcaPreturiDinSalvare(CatalogUpgradeuri.listaAuto, Properties.Settings.Default.SalvarePreturiAuto);
         }
-
+        // Încarcă prețurile dintr-un șir de salvare și le aplică la lista de upgrade-uri
         public static void IncarcaPreturiDinSalvare(List<Upgrade> lista, string salvare)
         {
             if (!string.IsNullOrEmpty(salvare))

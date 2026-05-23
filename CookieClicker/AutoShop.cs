@@ -6,6 +6,7 @@ namespace CookieClicker
 {
     public partial class AutoShop : Form
     {
+        // Constructorul form-ului, unde se seteaza proprietatile de baza si se adauga panourile pentru fiecare upgrade
         public AutoShop()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace CookieClicker
 
             ActualizeazaPreturi();
         }
-
+        // Metoda pentru stilizarea panourilor de upgrade, care seteaza culorile, fonturile si pozitiile elementelor
         private static void StyleUpgradePanel(Panel pnl, Label titleLbl, string title, Label priceLbl, Label countLbl, Point location, int tabIndex, Color accent)
         {
             pnl.BackColor = Color.FromArgb(30, 22, 12);
@@ -54,7 +55,7 @@ namespace CookieClicker
             countLbl.Text = "Owned: 0";
             pnl.Controls.Add(countLbl);
         }
-
+        // Metoda pentru actualizarea preturilor si a numarului de upgrade-uri detinute, care se apeleaza dupa fiecare achizitie
         public void ActualizeazaPreturi()
         {
             PretAutoUpgrade1.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[0].PretCurent);
@@ -69,7 +70,6 @@ namespace CookieClicker
             PretAutoUpgrade4.Text = "Pret: " + Utilitare.FormateazaNumar(CatalogUpgradeuri.listaAuto[3].PretCurent);
             AutoUpgrade4Nr.Text = "Owned: " + CatalogUpgradeuri.listaAuto[3].Nivel;
         }
-
         private void AutoUpgrade1_Click(object sender, EventArgs e)
         {
             bool succes = Form1.Instanta.CumparaUpgrade(CatalogUpgradeuri.listaAuto[0]);
