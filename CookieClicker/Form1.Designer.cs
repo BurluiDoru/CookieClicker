@@ -33,7 +33,7 @@ namespace CookieClicker
             panelRebirth = new System.Windows.Forms.Panel();
             butonRebirthShop = new System.Windows.Forms.Button();
 
-            // Controale noi pentru sunet si volum
+            // Controale pentru sunet si volum
             trackBarVolum = new System.Windows.Forms.TrackBar();
             labelVolum = new System.Windows.Forms.Label();
             buttonMuteClick = new System.Windows.Forms.Button();
@@ -41,22 +41,27 @@ namespace CookieClicker
             ((System.ComponentModel.ISupportInitialize)(trackBarVolum)).BeginInit();
             SuspendLayout();
 
-            // ── Shop nav buttons ───────────────────────────────────
+            // Butoanele de navigare magazin
             StyleShopButton(ClickShop, "🍪 Click Shop", new System.Drawing.Point(12, 24));
-            StyleShopButton(MultiShop, "✨ Multi Shop", new System.Drawing.Point(12, 78));
-            StyleShopButton(AutoShop, "⚙️ Auto Shop", new System.Drawing.Point(12, 130));
-            StyleShopButton(butonRebirthShop, "⭐ Rebirth Shop", new System.Drawing.Point(12, 186));
-
             ClickShop.Name = "ClickShop"; ClickShop.TabIndex = 0; ClickShop.Click += ClickShop_Click;
-            MultiShop.Name = "MultiShop"; MultiShop.TabIndex = 10; MultiShop.Click += MultiShop_Click;
-            AutoShop.Name = "AutoShop"; AutoShop.TabIndex = 11; AutoShop.Click += AutoShop_Click_1;
+            ClickShop.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
 
+            StyleShopButton(MultiShop, "✨ Multi Shop", new System.Drawing.Point(12, 78));
+            MultiShop.Name = "MultiShop"; MultiShop.TabIndex = 10; MultiShop.Click += MultiShop_Click;
+            MultiShop.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+
+            StyleShopButton(AutoShop, "⚙️ Auto Shop", new System.Drawing.Point(12, 130));
+            AutoShop.Name = "AutoShop"; AutoShop.TabIndex = 11; AutoShop.Click += AutoShop_Click_1;
+            AutoShop.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+
+            StyleShopButton(butonRebirthShop, "⭐ Rebirth Shop", new System.Drawing.Point(12, 186));
             butonRebirthShop.Name = "butonRebirthShop"; butonRebirthShop.TabIndex = 0;
             butonRebirthShop.BackColor = System.Drawing.Color.FromArgb(70, 50, 130);
             butonRebirthShop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(95, 70, 165);
             butonRebirthShop.Click += butonRebirthShop_Click;
+            butonRebirthShop.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
 
-            // ── REBIRTH button ─────────────────────────────────────
+            // Buton REBIRTH
             RebirthButton.BackColor = System.Drawing.Color.FromArgb(50, 180, 50);
             RebirthButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             RebirthButton.FlatAppearance.BorderSize = 0;
@@ -72,8 +77,9 @@ namespace CookieClicker
             RebirthButton.UseVisualStyleBackColor = false;
             RebirthButton.Cursor = System.Windows.Forms.Cursors.Hand;
             RebirthButton.Click += RebirthButton_Click;
+            RebirthButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
 
-            // ── RESET button ───────────────────────────────────────
+            // Buton RESET
             buttonReset.BackColor = System.Drawing.Color.FromArgb(180, 40, 40);
             buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             buttonReset.FlatAppearance.BorderSize = 0;
@@ -89,8 +95,9 @@ namespace CookieClicker
             buttonReset.UseVisualStyleBackColor = false;
             buttonReset.Cursor = System.Windows.Forms.Cursors.Hand;
             buttonReset.Click += buttonReset_Click;
+            buttonReset.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
 
-            // ── labelVolum ─────────────────────────────────────────
+            // Eticheta volum
             labelVolum.AutoSize = true;
             labelVolum.BackColor = System.Drawing.Color.Transparent;
             labelVolum.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -100,8 +107,9 @@ namespace CookieClicker
             labelVolum.Size = new System.Drawing.Size(120, 20);
             labelVolum.TabIndex = 20;
             labelVolum.Text = "🎵 Music Volume";
+            labelVolum.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
 
-            // ── trackBarVolum ──────────────────────────────────────
+            // Bara de volum
             trackBarVolum.BackColor = System.Drawing.Color.FromArgb(40, 30, 20);
             trackBarVolum.Location = new System.Drawing.Point(1690, 920);
             trackBarVolum.Maximum = 100;
@@ -111,8 +119,9 @@ namespace CookieClicker
             trackBarVolum.TickFrequency = 10;
             trackBarVolum.Value = 50;
             trackBarVolum.Scroll += new System.EventHandler(trackBarVolum_Scroll);
+            trackBarVolum.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
 
-            // ── buttonMuteClick ────────────────────────────────────
+            // Buton mute click
             buttonMuteClick.BackColor = System.Drawing.Color.FromArgb(45, 110, 185);
             buttonMuteClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             buttonMuteClick.FlatAppearance.BorderSize = 0;
@@ -128,16 +137,18 @@ namespace CookieClicker
             buttonMuteClick.UseVisualStyleBackColor = false;
             buttonMuteClick.Cursor = System.Windows.Forms.Cursors.Hand;
             buttonMuteClick.Click += new System.EventHandler(buttonMuteClick_Click);
+            buttonMuteClick.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
 
-            // ── Close Shop button ──────────────────────────────────
+            // Buton inchidere magazin
             StyleShopButton(buttonCloseShop, "✖ Close Shop", new System.Drawing.Point(12, 531));
             buttonCloseShop.BackColor = System.Drawing.Color.FromArgb(90, 60, 30);
             buttonCloseShop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(120, 80, 40);
             buttonCloseShop.Name = "buttonCloseShop";
             buttonCloseShop.TabIndex = 0;
             buttonCloseShop.Click += buttonCloseShop_Click_1;
+            buttonCloseShop.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
 
-            // ── label1: Cookies ────────────────────────────────────
+            // Etichete text
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.Transparent;
             label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -146,8 +157,8 @@ namespace CookieClicker
             label1.Name = "label1";
             label1.TabIndex = 1;
             label1.Text = "Cookies: 0";
+            label1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 
-            // ── label2: CPS ────────────────────────────────────────
             label2.AutoSize = true;
             label2.BackColor = System.Drawing.Color.Transparent;
             label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -156,8 +167,8 @@ namespace CookieClicker
             label2.Name = "label2";
             label2.TabIndex = 13;
             label2.Text = "CPS: 0";
+            label2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 
-            // ── label3: Rebirth Points ─────────────────────────────
             label3.AutoSize = true;
             label3.BackColor = System.Drawing.Color.Transparent;
             label3.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -166,8 +177,9 @@ namespace CookieClicker
             label3.Name = "label3";
             label3.TabIndex = 0;
             label3.Text = "Rebirth Points: 0";
+            label3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 
-            // ── RebirthPrice ───────────────────────────────────────
+            // Pret Rebirth
             RebirthPrice.AutoSize = true;
             RebirthPrice.BackColor = System.Drawing.Color.Transparent;
             RebirthPrice.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -176,8 +188,9 @@ namespace CookieClicker
             RebirthPrice.Name = "RebirthPrice";
             RebirthPrice.TabIndex = 17;
             RebirthPrice.Text = "RPrice";
+            RebirthPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
 
-            // ── panelshop ──────────────────────────────────────────
+            // Panouri
             panelshop.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             panelshop.BackColor = System.Drawing.Color.FromArgb(18, 12, 6);
             panelshop.Location = new System.Drawing.Point(12, 560);
@@ -185,25 +198,24 @@ namespace CookieClicker
             panelshop.Size = new System.Drawing.Size(780, 480);
             panelshop.TabIndex = 15;
 
-            // ── panelRebirth ───────────────────────────────────────
             panelRebirth.BackColor = System.Drawing.Color.Transparent;
             panelRebirth.Dock = System.Windows.Forms.DockStyle.Fill;
             panelRebirth.Location = new System.Drawing.Point(0, 0);
             panelRebirth.Name = "panelRebirth";
-            panelRebirth.Size = new Size(1904, 1041);
+            panelRebirth.Size = new System.Drawing.Size(1904, 1041);
             panelRebirth.TabIndex = 0;
             panelRebirth.Visible = false;
 
-            // ── timers ─────────────────────────────────────────────
+            // Timere
             timer1.Enabled = true; timer1.Interval = 1000; timer1.Tick += timer1_Tick;
             timer2.Enabled = true; timer2.Interval = 30; timer2.Tick += timer2_Tick;
 
-            // ── Form1 Fereastra Princiala ──────────────────────────
+            // Fereastra principala Form1
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackgroundImage = (System.Drawing.Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new System.Drawing.Size(1904, 1041);
 
             Controls.Add(label3);
             Controls.Add(label2);
@@ -248,7 +260,7 @@ namespace CookieClicker
             btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btn.ForeColor = System.Drawing.Color.White;
             btn.Location = location;
-            btn.Size = new Size(122, 36);
+            btn.Size = new System.Drawing.Size(122, 36);
             btn.Text = text;
             btn.UseVisualStyleBackColor = false;
             btn.Cursor = System.Windows.Forms.Cursors.Hand;

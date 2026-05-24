@@ -32,7 +32,7 @@ namespace CookieClicker
             {
                 Form1.Instanta.rebirthpoints -= 1000;
 
-                string caleVideo = @"D:\c++\cookieclicker-cica\CookieClicker\CookieClicker\Secret.mp4";
+                string caleVideo = System.IO.Path.Combine(Application.StartupPath, "Secret.mp4");
 
                 if (System.IO.File.Exists(caleVideo))
                 {
